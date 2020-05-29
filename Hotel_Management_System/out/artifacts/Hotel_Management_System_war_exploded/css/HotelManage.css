@@ -1,0 +1,76 @@
+body{
+    background-color: #F3F3F3;
+}
+#hr1{
+    border:0;
+    height:1px;
+    background-color: #AED2DA;
+}
+#alter{
+    padding: 20px;
+    width: 1069px;
+}
+#alter_1{
+    background-color: #FAFAFA;
+}
+#alter_1_1{
+    background-color: #AED2DA;
+    height: 50px;
+    width: 100%;
+    padding-top: 10px;
+}
+#span1{
+    color: #007FBB;
+    font-size: 25px;
+}
+/*#alter_1_1_1{*/
+/*    float: right;*/
+/*}*/
+#room_type{
+    margin-right:0px;
+    width: 450px;
+    height:25px;
+}
+#button1{
+    -webkit-appearance: button;
+    height:32px;
+    width:30px;
+    margin-left: 0px;
+}
+#alter_1_2{
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+#room{
+    border-collapse: collapse;
+    border: 1px solid #AED2DA;
+}
+#checkall{
+    width: 20px;
+}
+#hr2{
+    border:none;
+    border-top:1px dashed #AED2DA;
+    height:1px;
+}
+.delandadd{
+    float: right;
+}
+#alter_1_3{
+    height: 25px;
+    width: 100%;
+    background-color: #AED2DA;
+    margin-top: 35px;
+}
+#alter_1_3_1{
+    float: left;
+    display: inline;
+}
+#alter_1_3_2{
+    display: inline;
+    float: right;
+}
+.img-room{
+    width: 70px;
+    height: 70px;
+}

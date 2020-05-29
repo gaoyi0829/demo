@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/Application.js"></script>
+<script>
+    var page = 1;
+    var firstpage = 1;
+    var lastpage = 0;
+    var condition;
+    window.onload = function start() {
+        sel();
+    }
+
+    function sel() {
+        page = 1;
+        condition = document.getElementById("filmname").value;
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8080/Hotel_Management_System_war_exploded/filmlist",
+            data: {"page": page, "condition": condition},
+            dataType: "json",
+            success: function (data) {
+                $("#film tr:not(:first)").empty();
+                $('#page option').not('option:first').remove();
+                $.each(data, function () {
+                    var tr = $("<tr align='center'/>");
+                    var checkbox = "<input type='checkbox' name='fckbx' value='" + this.film_id + "'>";
+                    var del = "<input type='button' class='opt' value='' style='-webkit-appearance: button;background: url(BackImg/del_button.png);background-size: cover;width: 19px;height:19px;border: none;' onclick='del_id(" + this.film_id + ")'>";
+                    var alt = "<input type='button' class='opt' value='' style='-webkit-appearance: button;background: url(BackImg/alter.png);background-size: cover;width: 19px;height:19px;border: none;' onclick='SetCookie(\"film_id\","+this.film_id+");window.parent.insiframe(\"FilmAlter.html\")'>";
+                    $("<td/>").html(checkbox).appendTo(tr);
+                    $("<td/>").html(this.film_id).appendTo(tr);
+                    $("<td/>").html(this.film_name).appendTo(tr);
+                    $("<td/>").html(this.poster).appendTo(tr);
+                    $("<td/>").html(this.director).appendTo(tr);
+                    $("<td/>").html(this.film_type).appendTo(tr);
+                    $("<td/>").html(this.film_length).appendTo(tr);
+                    $("<td/>").html(this.score).appendTo(tr);
+                    $("<td/>").html(alt).appendTo(tr);
+                    $("<td/>").html(del).appendTo(tr);
+                    $("#film").append(tr);
+
+                })
+                count();
+            }
+        });
+    }
+
+    function turnPage() {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8080/Hotel_Management_System_war_exploded/filmlist",
+            data: {"page": page, "condition": condition},
+            dataType: "json",
+            success: function (data) {
+                $("#film tr:not(:first)").empty();
+                $.each(data, function () {
+                    var tr = $("<tr align='center'/>");
+                    var checkbox = "<input type='checkbox' name='fckbx' value='" + this.film_id + "'>";
+                    var del = "<input type='button' class='opt' value='' style='-webkit-appearance: button;background: url(BackImg/del_button.png);background-size: cover;width: 19px;height:19px;border: none;' onclick='del_id(" + this.film_id + ")'>";
+                    var alt = "<input type='button' class='opt' value='' style='-webkit-appearance: button;background: url(BackImg/alter.png);background-size: cover;width: 19px;height:19px;border: none;' onclick='SetCookie(\"film_id\","+this.film_id+");window.parent.insiframe(\"FilmAlter.html\")'>"
+                    $("<td/>").html(checkbox).appendTo(tr);
+                    $("<td/>").html(this.film_id).appendTo(tr);
+                    $("<td/>").html(this.film_name).appendTo(tr);
+                    $("<td/>").html(this.poster).appendTo(tr);
+                    $("<td/>").html(this.director).appendTo(tr);
+                    $("<td/>").html(this.film_type).appendTo(tr);
+                    $("<td/>").html(this.film_length).appendTo(tr);
+                    $("<td/>").html(this.score).appendTo(tr);
+                    $("<td/>").html(alt).appendTo(tr);
+                    $("<td/>").html(del).appendTo(tr);
+                    $("#film").append(tr);
+                })
+            }
+        })
+        document.getElementById("page").value = page;
+    }
+
+    function del_id(f_id) {
+        var delflag = confirm("是否删除所选信息");
+        if (delflag == true) {
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/Hotel_Management_System_war_exploded/filmdelbyid",
+                contentType: 'application/x-www-form-urlencoded',
+                data: {"f_id": f_id},
+                success: function () {
+                    alert("删除成功!");
+                }
+            })
+        } else {
+            alert("取消删除!");
+        }
+    }
+
+    function del_ids() {
+        var delflag = confirm("是否删除所选信息");
+        if (delflag == true) {
+            var f_ids = new Array();
+            f_ids = [];
+            var items = document.getElementsByName("fckbx");
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].checked) {
+                    f_ids.push(items[i].value)
+                }
+            }
+            alert(f_ids);
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/Hotel_Management_System_war_exploded/filmdelbyids",
+                traditional: true,  //传递数组必须设置此属性
+                data: {"f_ids": f_ids},
+                success: function () {
+                    alert("删除成功!");
+                }
+
+            })
+        } else {
+            alert("取消删除!");
+        }
+    }
+
+    function count() {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8080/Hotel_Management_System_war_exploded/filmcount",
+            data: {"condition": condition},
+            dataType: "json",
+            success: function (data) {
+                document.getElementById("count").innerHTML = data;
+                var pagenm = Math.ceil(data / 8);
+                lastpage = pagenm;
+                for (var i = 2; i <= pagenm; i++) {
+                    var opt = "<option value='" + i + "'>" + i + "</option>";
+                    $("#page").append(opt);
+                    i++;
+                }
+            }
+        })
+    }
+
+    function checkall() {
+        var btn = document.getElementById("checkall");
+        var flag = btn.checked;
+        var items = document.getElementsByName("fckbx");
+        for (var i = 0; i < items.length; i++) {
+            items[i].checked = flag;//将所有item的状态设为全选按钮的状态
+        }
+    }
+
+    function firstPage() {
+        page = firstpage;
+        turnPage();
+    }
+
+    function lastPage() {
+        page = lastpage;
+        turnPage();
+    }
+
+    function previousPage() {
+        if (page > firstpage) {
+            page--;
+        }
+        turnPage();
+    }
+
+    function nextPage() {
+        if (page < lastpage) {
+            page++;
+        }
+        turnPage();
+    }
+
+    function jump() {
+        page = document.getElementById("page").value;
+        turnPage();
+    }
+
+    function writ() {
+        if (document.getElementById("filmname").value == null || document.getElementById("filmname").value == "") {
+            document.getElementById("filmname").value = "搜索电影";
+        }
+    }
+
+    function remove() {
+        if (document.getElementById("filmname").value == "搜索电影") {
+            document.getElementById("filmname").value = "";
+        }
+    }
+</script>
+<body style="background-color: #F3F3F3;">
+<hr style="border:0;height:1px;background-color: #AED2DA;">
+<div id="alter" style="padding: 20px;width: 1069px;">
+    <div id="alter_1" style="background-color: #FAFAFA">
+        <div id="alter_1_1" style="background-color: #AED2DA;height: 50px;width: 100%;padding-top: 10px;">
+            <span style="color: #007FBB;font-size: 25px;">影片管理</span>
+            <div id="alter_1_1_1" style="float: right">
+                <input type="text" id="filmname" name="filmname" value="搜索电影"
+                       style="margin-right:0px;width: 450px;height:25px;" onmouseover="remove()" onmouseleave="writ()">
+                <input type="button" style="-webkit-appearance: button;height:32px;width:30px;margin-left: 0px;"
+                       onclick="sel()" value="🔍">
+            </div>
+        </div>
+        <div id="alter_1_2" style="margin-top: 10px;margin-bottom: 60px;">
+            <center>
+                <table border="1" id="film" style="border-collapse: collapse;border: 1px solid #AED2DA">
+                    <tr align="center">
+                        <th><input type="checkbox" id="checkall" style="width: 20px;" onclick="checkall()">全选</th>
+                        <th style="width: 50px;">id</th>
+                        <th style="width: 130px;">影片名称</th>
+                        <th style="width: 130px;">海报</th>
+                        <th style="width: 130px;">导演</th>
+                        <th style="width: 240px;">类型</th>
+                        <th style="width: 80px;">片长</th>
+                        <th style="width: 80px;">评分</th>
+                        <th style="width: 50px;">编辑</th>
+                        <th style="width: 50px;">删除</th>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <hr style="border:none;border-top:1px dashed #AED2DA;height:1px;">
+        <input type="button" value="批量删除" style="float: right;" onclick="del_ids()">
+        <input type="button" value="录入影片" style="float: right;" onclick="window.parent.iniframe('FilmInsert.html')">
+        <div id="alter_1_3" style="height: 25px;width: 100%;background-color: #AED2DA;margin-top: 35px;">
+            <div id="alter_1_3_1" style="float: left;display: inline">
+                总计：<span id="count"></span>条记录
+            </div>
+            <div id="alter_1_3_2" style="display: inline;float: right">
+                <input type="button" value="首页" onclick="firstPage()">
+                <input type="button" value="上一页" onclick="previousPage()">
+                第<select id="page" onchange="jump()">
+                <option value="1">1</option>
+            </select>页
+                <input type="button" value="下一页" onclick="nextPage()">
+                <input type="button" value="尾页" onclick="lastPage()">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

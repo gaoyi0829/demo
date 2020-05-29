@@ -1,0 +1,22 @@
+
+SpringMVC:相当于Web层的设计，主要设计内容Controller -跳转到指定的页面/JSON返回值
+Spring:使用最多的是IOC  --Service层中注入DAO,整个设计中，不再出现new
+                      --事务处理（主要使用AOP完成）
+Mybatis:数据库持久层的操作（注解形式，接口方式）
+开发的过程中层次的控制：
+                    1.创建项目的目录结构
+                        --entity:主要用于封装数据库的实体类
+                        --dao:数据库的基本操作，文件操作
+                        --service:业务逻辑层/BLL 设计的实现接口
+                        --servicImpl:业务实现（事务一般卸载此处）
+                        --web:控制类
+                        --dto:主要负责web和service层之间的传输（出现一种现象:同时使用多个entity中的内容，可以使用dto进行逻辑封装）
+
+                        web->serviceImpl->dao（依赖注入）
+
+                    2.添加相关的jar文件 --maven进行jar的管理
+                    --编程配置
+                    3.完成Spring的数据库连接
+                        (1).读取相关的数据文件 jdbc.properties
+                        (2).创建Spring-dao.xml文件（数据库的连接操作）
+                    4.

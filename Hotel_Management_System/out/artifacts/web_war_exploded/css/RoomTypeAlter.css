@@ -1,0 +1,71 @@
+body{
+    line-height: 40px;
+    width: 610px;
+    background-color: #F3F3F3;
+}
+#hr1{
+    border:0;
+    height:1px;
+    background-color: #AED2DA;
+}
+#alter{
+    padding: 20px;
+    width: 580px;
+    height: 800px;
+    background-color: #FAFAFA;
+}
+#alter_1_1{
+    background-color: #AED2DA;
+    height: 50px;
+    width: 100%;
+    padding-top: 10px;
+}
+#span1{
+    color: #007FBB;
+    font-size: 25px;
+}
+#insert{
+    float: left;
+}
+#updataform{
+    color: #999999;
+}
+input {
+    height: 25px;
+    width: 137px;
+}
+
+span {
+    color: #0099FF;
+}
+
+input#file {
+    display: none;
+}
+
+input#img-upload {
+    height: 31px;
+    width: 60px;
+    background-color: #0099FF;
+    border-radius: 10px;
+    color: white;
+}
+
+input.button {
+    height: 31px;
+    width: 60px;
+    border-radius: 10px;
+    color: white;
+}
+
+div#img-room_type {
+    margin-right: 5px;
+    display: inline;
+}
+.save{
+    background-color: #00AEE6;
+}
+.cancel{
+    background-color: #CCCCCC;
+}
+

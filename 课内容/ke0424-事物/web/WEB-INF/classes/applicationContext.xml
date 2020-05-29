@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/cache"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+    					 http://www.springframework.org/schema/beans/spring-beans.xsd
+       					 http://www.springframework.org/schema/context 
+       					 http://www.springframework.org/schema/context/spring-context.xsd
+       					 http://www.springframework.org/schema/aop
+       					 http://www.springframework.org/schema/aop/spring-aop.xsd
+       					 http://www.springframework.org/schema/cache
+       					 http://www.springframework.org/schema/cache/spring-cache.xsd
+						 http://www.springframework.org/schema/tx
+       					 http://www.springframework.org/schema/tx/spring-tx.xcd">
+
+   <!-- 添加Spring註解的命名空间的声明 context标记 -->
+    <!-- 1.声明Spring要进行扫描管理的包名
+   				 base-package="com.vo  : 当前包以及子包下的所有类
+   				 base-package="com.vo.* :当前包的子包下的所有类
+   				 如果出现多个包,进行连续声明 包之间以 , 分隔
+    	 -->
+    	<aop:aspectj-autoproxy/>
+		<context:component-scan base-package="com.service,com.advice"></context:component-scan>
+	<!--1.创建一个数据源 可以使用第三方的c3p0
+				扩展：使用数据库的配置文件 *.properties ${key}-->
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+			<property name="url" value="jdbc:mysql://localhost:3306/test?serverTimezone=GMT"></property>
+			<property name="username" value="root"></property>
+			<property name="password" value="gaoyi0829"></property>
+		</bean>
+	<!--2.声明事务管理器txManager 所有事物的管理的代码 都有该事务管理器完成	-->
+		<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"></property>
+		</bean>
+	<!--3.配置声明事物-->
+		<tx:advice id="txAdvice" transaction-manager="txManager"></tx:advice>
+	</beans>
+	
+	
+	
+	
+	
+	
+	
+	
+	

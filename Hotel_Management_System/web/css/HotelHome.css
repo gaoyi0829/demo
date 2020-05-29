@@ -1,0 +1,27 @@
+body {
+    padding: 0px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+#bottom{
+    width: 100%;
+    border: medium none;
+    margin-top: 50px;
+}
+.showpage{
+    width: 100%;
+}
+.showimg{
+    width: 100%;
+    height: 550px;
+}
+#seldiv{
+    background-color: white;
+    text-align: center;
+}
+#showlogo{
+    width: 100%;
+    background-color: #FFFFFF;
+    text-align: center;
+}

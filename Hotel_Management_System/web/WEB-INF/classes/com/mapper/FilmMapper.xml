@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.FilmMapper"><!--namespace:定义一个操作包  -->
+    <select id="FilmSelectAll" resultType="com.pojo.Film">
+		SELECT film_name,poster,film_id
+		FROM film_gallery
+		limit 0,10
+	</select>
+    <select id="FilmSelectByName" resultType="com.pojo.Film" parameterType="String">
+		SELECT film_name,poster,film_id
+		FROM film_gallery
+		WHERE film_name like ${_parameter}
+		limit 0,10
+	</select>
+    <select id="FilmSelectByCondition" resultType="com.pojo.Film" parameterType="String">
+        select film_name,poster,film_id
+        FROM film_gallery
+        <where>
+            <if test="_parameter!=null and _parameter!='' ">
+                ${_parameter}
+            </if>
+        </where>
+        <if test="_parameter=='release_date' or _parameter=='score'">
+            order by ${_parameter} desc
+        </if>
+        limit 0,10
+    </select>
+    <select id="FilmSelectInformation" resultType="com.pojo.Film" parameterType="Integer">
+  		SELECT *
+  		FROM film_gallery
+  		WHERE film_id=#{_parameter}
+  	</select>
+    <select id="FilmGetmore" resultType="com.pojo.Film">
+        select film_name,poster,film_id
+        from film_gallery
+        <where>
+            <if test="condition!=null and condition!='' ">
+                ${condition}
+            </if>
+        </where>
+        <if test="condition=='release_date' or condition=='score'">
+            order by ${condition} desc
+        </if>
+        limit #{page},10
+    </select>
+    <select id="FilmList" resultType="com.pojo.Film">
+        select film_name,poster,film_id,director,film_length,film_type,score
+        from film_gallery
+        <where>
+            <if test="condition!=null and condition!=''">
+                film_name like ${condition}
+            </if>
+        </where>
+        limit #{page},8
+    </select>
+    <select id="FilmCount" resultType="Integer">
+        select count(*)
+        from film_gallery
+        <where>
+            <if test="condition!=null and condition!=''">
+                film_name like ${condition}
+            </if>
+        </where>
+    </select>
+    <insert id="FilmInsert" parameterType="com.pojo.Film">
+        insert into film_gallery (poster,film_name,director,screen_writer,actor,film_type,producer_country,language,release_date,film_length,brief_introduction,score)
+        values (#{poster},#{film_name},#{director},#{screen_writer},#{actor},#{film_type},#{producer_country},#{language},#{release_date},#{film_length},#{brief_introduction},#{score});
+    </insert>
+    <delete id="filmDelById" parameterType="Integer">
+        delete from room_info
+        where room_id = #{_parameter}
+    </delete>
+    <delete id="filmDelByIds" parameterType="java.util.List">
+        delete from room_info where room_id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <update id="filmAlter">
+        update film_gallery set ${varname} = ${upval}
+        where film_id = ${film_id};
+    </update>
+    <delete id="filmDelByType" parameterType="Integer">
+        delete from room_type
+        where room_type = #{_parameter}
+    </delete>
+    <delete id="filmDelByTypes" parameterType="java.util.List">
+        delete from room_type where room_type in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

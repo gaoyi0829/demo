@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/AllManage.css">
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script src="js/AllManage.js"></script>
+<script src="js/json2.js"></script>
+<script src="js/Application.js"></script>
+<body>
+<div id="manage-top">
+    <div id="manage-top-system"></div>
+    <div id="manage-top-time">系统时间：</div>
+</div>
+<div id="option">
+<span id="span-menu" class="span">管理菜单</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="usershow" class="span">当前用户：</span><br>
+<div id="menu">
+    <div class="div-menu">房间管理</div>
+    <a class="inserthtml" onclick="insiframe('HotelManage.html')">房型管理</a><br>
+    <a class="inserthtml" onclick="insiframe('RoomTypeInsert.html')">添加房型</a><br>
+    <a class="inserthtml" onclick="insiframe('RoomManage.html')">房间管理</a><br>
+    <a class="inserthtml" onclick="insiframe('RoomInsert.html')">添加房间</a><br>
+    <div class="div-menu">影库管理</div>
+    <div class="div-menu">评价管理</div>
+    <div class="div-menu">客房服务管理</div>
+    <div class="div-menu">用户管理</div>
+    <div class="div-menu">员工管理</div>
+</div>
+<div id="interface">
+    <iframe id="opthtml"></iframe>
+</div>
+</div>
+</body>
+</html>

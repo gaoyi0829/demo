@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人空间</title>
+</head>
+<style>
+    a:link,
+    a:hover,
+    a:visited {
+        color: #009FCC;
+        text-decoration: none;
+    }
+
+    input {
+        height: 25px;
+        width: 137px;
+    }
+
+    input.button {
+        height: 31px;
+        width: 60px;
+        border-radius: 10px;
+    }
+</style>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/Application.js"></script>
+<script>
+    var loginid = getCookie("loginid");
+    var loginname = getCookie("loginname");
+    window.onload = function () {
+        if (loginid != null && loginid != "") {
+            var user = "<span>欢迎访问," + loginname + "</span>"
+            var a = "<a href='Reinfo.html'>修改资料</a>"
+            var a1 = "<a href='Userspace.html'>个人空间</a>"
+            $("#top").append(user);
+            $("#top").append("<br>");
+            $("#top").append(a);
+            $("#top").append("&nbsp;&nbsp;&nbsp;");
+            $("#top").append(a1);
+        } else {
+            var a = "<a href='Login.html'>登陆</a>"
+            $("#top").html(a).append();
+        }
+        $.ajax({
+            url: "userspace",
+            type: "POST",
+            data: {"uid": loginid},
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function () {
+                    if (this.ord == 2) {
+                        var a = "置顶";
+                        var ord = 1;
+                    } else {
+                        var a = "取消置顶"
+                        ord = 2;
+                    }
+                    var fname = "<span>文件名: " + this.filename + "&nbsp;&nbsp;&nbsp;文件大小: " + this.filesize + "kb&nbsp;&nbsp;&nbsp;下载次数:"+this.downnum+"</span>&nbsp;&nbsp;&nbsp;";
+                    var puttop = "<a href='puttop?uid=" + loginid + "&filename=" + this.filename + "&ord=" + ord + "'>" + a + "</a>&nbsp;&nbsp;&nbsp;";
+                    var delet = "<a href='delete?uid=" + loginid + "&filename=" + this.filename + "&filesize="+this.filesize+"'>删除</a><br>";
+                    $("#filelist").append(fname);
+                    $("#filelist").append(puttop);
+                    $("#filelist").append(delet);
+                })
+            }
+        });
+    }
+
+    function selfile() {
+        var type = document.getElementById("filetype").value;
+        $.ajax({
+            url: "filebycondiyion",
+            type: "POST",
+            data: {"condition": type, "uid": loginid},
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('filelist').innerHTML = "";
+                $.each(data, function () {
+                    if (this.ord == 2) {
+                        var a = "置顶";
+                        var ord = 1;
+                    } else {
+                        var a = "取消置顶"
+                        ord = 2;
+                    }
+                    var fname = "<span>文件名: " + this.filename + "&nbsp;&nbsp;&nbsp;文件大小: " + this.filesize + "&nbsp;&nbsp;&nbsp;下载次数:"+this.downnum+"</span>&nbsp;&nbsp;&nbsp;";
+                    var puttop = "<a href='puttop?uid=" + loginid + "&filename=" + this.filename + "&ord=" + ord + "'>" + a + "</a>&nbsp;&nbsp;&nbsp;";
+                    var delet = "<a href='delete?uid=" + loginid + "&filename=" + this.filename + "&filesize="+this.filesize+"'>删除</a><br>";
+                    $("#filelist").append(fname);
+                    $("#filelist").append(puttop);
+                    $("#filelist").append(delet);
+                })
+            }
+        });
+    }
+
+    function upload() {
+        var formData = new FormData();
+        formData.append('file', $("#file")[0].files[0]);
+        formData.append('sid', loginid);
+        $.ajax({
+            url: 'upload',
+            type: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'text',
+            success: function () {
+                alert("上传成功!");
+            },
+            error: function () {
+                alert('上传失败!');
+            }
+        });
+    }
+</script>
+<body>
+<div id="top" style="float: right;margin-top: 0px;margin-bottom: 100px;"></div>
+<div id="all" style="clear: both">
+    <form action="upload" enctype="multipart/form-data" method="post">
+        文件：<input type="file" name="file" id="file"><br>
+        <input type="button" class="button" value="上传文件" onclick="upload()">
+    </form>
+    <hr>
+    <span>个人文件列表</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    文件类型:<select id="filetype" onchange="selfile()">
+    <option value="all">默认</option>
+    <option value="txt">.txt</option>
+    <option value="doc">.doc</option>
+    <option value="png">.png</option>
+</select>
+    <br>
+    <div id="filelist" style="float: left"></div>
+</div>
+</body>
+</html>

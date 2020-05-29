@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/HotelHome.css"/>
+<link rel="stylesheet" href="css/HotelTop.css"/>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script src="js/json2.js"></script>
+<script src="js/HotelTop.js"></script>
+<script src="js/HotelHome.js"></script>
+<script src="js/Application.js"></script>
+<body>
+<div id="hoteltop">
+    <a href="HotelHome.html" class="left">华信快捷酒店</a>
+<!--    <a class="right" id="sel" onclick="openwindown('http://www.baidu.com','订单查询')">查找预定</a>-->
+<!--    <a class="right" id="regist" onclick="openwindown('http://www.zhanqi.com','注册')">立即加入</a>-->
+<!--    <a class="right" id="login" onclick="openwindown('http://www.douyu.com','登陆')">登陆</a>-->
+</div>
+<div id="showlogo">
+    <img src="BackImg/logo.jpg">
+</div>
+<div class="modal">
+    <div class="container">
+        <div class="container-top"><span id="container-top-span"></span>
+            <div class="close" onclick="closewindown()">
+                ╳
+            </div>
+        </div>
+        <iframe id="popup"></iframe>
+    </div>
+</div>
+<div class="showpage">
+    <img src="BackImg/Scrollshow1.png" class="showimg">
+</div>
+<div class="showpage" id="seldiv">
+    <div style="width: 100%">
+        <img src="BackImg/order.png">
+    </div>
+    <br>
+    <input type="date" id="in_date" class="date" name="in_date">-
+    -<input type="date" id="out_date" class="date" name="out_date">
+    <input type="button" value="立即预订" id="sel_sub">
+</div>
+<br>
+<div class="showpage">
+    <img src="BackImg/Scrollshow2.png" class="showimg">
+</div>
+<div class="showpage">
+    <img src="BackImg/Scrollshow3.png" class="showimg">
+</div>
+<iframe src="HotelBottom.html" id="bottom"/>
+</body>
+</html>

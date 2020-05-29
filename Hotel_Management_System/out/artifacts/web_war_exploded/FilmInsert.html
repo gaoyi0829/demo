@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插入影片</title>
+</head>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script src="js/json2.js"></script>
+<style>
+    .must {
+        color: red;
+    }
+
+    input {
+        height: 25px;
+        width: 137px;
+    }
+
+    input#file {
+        display: none;
+    }
+
+    input#img-upload {
+        height: 31px;
+        width: 60px;
+        background-color: #0099FF;
+        border-radius: 10px;
+        color: white;
+    }
+
+    input.button {
+        height: 31px;
+        width: 60px;
+        border-radius: 10px;
+        color: white;
+    }
+
+    div#poster {
+        margin-right: 5px;
+    }
+</style>
+<script>
+    var flag = false;
+    $(document).ready(function () {
+        $('#img-upload').click(function () {
+            $('#file').click();
+        });
+    })
+function filmins() {
+    var formData = new FormData(document.forms.namedItem("form-ifo"));
+    if (flag == true) {
+        $.ajax({
+            url: 'http://localhost:8080/Hotel_Management_System_war_exploded/filminsert',
+            type: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'text',
+            success: function () {
+                alert("插入成功!");
+            },
+            error: function () {
+                alert('插入失败!');
+            }
+        });
+    }
+}
+    function showimg() {
+        $('#poster').html("");
+        var poster = document.getElementById("file").value;
+        var pos1 = poster.split("\\");
+        alert(pos1[pos1.length - 1]);
+        var img = "<img src='http://localhost:8080/download/" + pos1[pos1.length - 1] + "' style='width: 145px;height: 200px;vertical-align:bottom;'/>";
+        $('#poster').append(img);
+    }
+     function check(){
+         for(var i=0;i<document.getElementById("form-ifo").elements.length-1;i++)
+         {
+             if(document.getElementById("form-ifo").elements[i].value=="")
+             {
+                 alert("有未填项，无法提交！");
+                 document.getElementById("form-ifo").elements[i].focus();
+                 flag = false;
+                 return false;
+             }
+         }
+         flag = true;
+         return true;
+    }
+    $(function () {
+        //得到当前时间
+        var date_now = new Date();
+        //得到当前年份
+        var year = date_now.getFullYear();
+        //得到当前月份
+        //注：
+        //  1：js中获取Date中的month时，会比当前月份少一个月，所以这里需要先加一
+        //  2: 判断当前月份是否小于10，如果小于，那么就在月份的前面加一个 '0' ， 如果大于，就显示当前月份
+        var month = date_now.getMonth() + 1 < 10 ? "0" + (date_now.getMonth() + 1) : (date_now.getMonth() + 1);
+        //得到当前日子（多少号）
+        var date = date_now.getDate() < 10 ? "0" + date_now.getDate() : date_now.getDate();
+        //设置input标签的max属性
+        $("#release_date").attr("max", year + "-" + month + "-" + date);
+    })
+</script>
+<body style="line-height: 40px;width: 600px;background-color: #F3F3F3;">
+<hr style="border:0;height:1px;background-color: #AED2DA;">
+<div id="alter" style="padding: 20px;width: 569px;height: 800px;;background-color: #FAFAFA;">
+    <div id="alter_1_1" style="background-color: #AED2DA;height: 50px;width: 100%;padding-top: 10px;">
+        <span style="color: #007FBB;font-size: 25px;">影片录入</span>
+    </div>
+    <div id="insert" style="float: left;">
+        <form action="filminsert" method="post" id="form-ifo" style="color: #999999;" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" id="file" onchange="showimg()" required>
+            <span class="must">*</span>海报：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="poster"
+                                                                                   style="display: inline;"></div>
+            <input type="button" name="img-upload" id="img-upload" value="上传"><br>
+            <span class="must">*</span>电影名：&nbsp;&nbsp;&nbsp;<input type="text" name="film_name" maxlength="10"
+                                                                    id="film_name" required><br>
+            <span class="must">*</span>导演：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="director"
+                                                                                     maxlength="16" id="director"
+                                                                                     required><br>
+            <span class="must">*</span>编剧：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="screen_writer"
+                                                                                     maxlength="33"
+                                                                                     id="screen_writer"
+                                                                                     required><br>
+            <span class="must">*</span>演员：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="actor"
+                                                                                     maxlength="133" id="actor"
+                                                                                     required><br>
+            <span class="must">*</span>类型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="film_type"
+                                                                                     maxlength="33" id="film_type"
+                                                                                     required><br>
+            <span class="must">*</span>制片国家：<input type="text" name="producer_country" maxlength="10"
+                                                   id="producer_country" required><br>
+            <span class="must">*</span>语言：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="language"
+                                                                                     maxlength="50" id="language"
+                                                                                     required><br>
+            <span class="must">*</span>上映日期：<input type="date" name="release_date" id="release_date" required><br>
+            <span class="must">*</span>时长：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="film_length"
+                                                                                     maxlength="5" id="film_length"
+                                                                                     required><br>
+            <span class="must">*</span>评分：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="score"
+                                                                                     maxlength="3" id="score"
+                                                                                     required><br>
+            <span class="must">*</span>剧情简介：
+            <textarea id="brief_introduction" name="brief_introduction" style="width: 300px;height: 100px"
+                      maxlength="266"
+                      required></textarea><br>
+            <center><input type="button" class="button" value="插入" style="background-color: #00AEE6" onclick="return check(),filmins()">&nbsp;&nbsp;<input
+                type="reset" class="button" value="重置" style="background-color: #CCCCCC">&nbsp;&nbsp;</center>
+        </form>
+    </div>
+</div>
+</body>
+</html>

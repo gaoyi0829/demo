@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <!-- Spring和Mybatis的整合 -->
+        	<!-- 创建一个数据源 -->
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+       		<property name="url" value="jdbc:mysql://localhost:3306/ke?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"/>
+   			<property name="username" value="root"/>
+   			<property name="password" value="gaoyi0829"/>
+        </bean>
+        <!-- 创建一个Session的工厂 -->
+        <bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 在工厂中指定数据源 -->
+        	<property name="dataSource" ref="dataSource"></property>
+        </bean>
+
+        <!-- 创建mybatis的扫描器包
+        		包换mybatis操作的接口
+        -->
+        	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        		<property name="basePackage" value="com.mapper"></property>
+        		<property name="sqlSessionFactory" ref="factory"></property>
+        	</bean>
+
+        <!-- 定义一个操作的服务类 -->
+        	<bean id="IService" class="com.service.IService">
+        		<property name="imapper" ref="IMapper"></property>
+        	</bean>
+
+</beans>

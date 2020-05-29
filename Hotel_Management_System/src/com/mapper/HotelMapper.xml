@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.HotelMapper"><!--namespace:定义一个操作包  -->
+    <select id="selMaxNum" resultType="Integer">
+        select max(maxnum) from room_type;
+    </select>
+    <select id="selRoom" resultType="com.pojo.Hotel">
+        select room_type.* from room_type,room_info ri
+        where (#{in_date} > ri.out_date or ri.in_date > #{out_date} or ri.in_date is null or ri.out_date is null)
+        and room_type.room_type = ri.room_type and room_type.maxnum >= #{cusnum}
+        group by room_type.room_type;
+    </select>
+    <select id="selRoomByType" resultType="com.pojo.Hotel">
+        select * from room_type
+        where room_type = #{room_type};
+    </select>
+    <select id="selRoomType" resultType="com.pojo.Hotel">
+        select * from room_type
+        limit #{page},8;
+    </select>
+    <select id="roomcount" resultType="Integer">
+        select count(*)
+        from room_type;
+    </select>
+    <select id="roomtypeinfo" resultType="com.pojo.Hotel">
+        select * from room_type
+        where room_type = #{room_type};
+    </select>
+    <update id="roomtypeupdata">
+        update room_type set ${varname} = ${upval}
+        where room_type = #{room_type};
+    </update>
+    <insert id="roomtypeinsert" parameterType="com.pojo.Hotel">
+        insert into room_type(room_type,room_img,bed_type,food,room_service,maxnum,price,room_area,bed_length,window)
+        value (#{room_type},#{room_img},#{bed_type},#{food},#{room_service},#{maxnum},#{price},#{room_area},#{bed_length},#{window})
+    </insert>
+    <select id="selroomlist" resultType="com.pojo.Room">
+        select * from room_info
+        limit #{page},8
+    </select>
+    <delete id="roomtypeDelByType" parameterType="String">
+        delete from room_type
+        where room_type = #{room_type}
+    </delete>
+    <delete id="roomtypeDelByTypes" parameterType="java.util.List">
+        delete from room_type where room_type in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="roomnum" resultType="Integer">
+        select count(*) from room_info;
+    </select>
+    <select id="seltype" resultType="String">
+        select room_type from room_type
+        group by room_type;
+    </select>
+    <select id="roominfo" resultType="com.pojo.Room">
+        select * from room_info
+        where room_id = #{room_id};
+    </select>
+    <insert id="roominsert">
+        insert into room_info (room_id,room_type) values (#{room_id},#{room_type});
+    </insert>
+    <update id="roomupdata">
+        update room_info set ${varname} = ${upval}
+        where room_id = #{room_id};
+    </update>
+    <delete id="roomDelById" parameterType="Integer">
+        delete from room_info
+        where room_id = #{room_id}
+    </delete>
+    <delete id="roomDelByIds" parameterType="java.util.List">
+        delete from room_info where room_id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

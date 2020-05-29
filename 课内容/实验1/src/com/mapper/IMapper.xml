@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.IMapper"><!--namespace:定义一个操作包  -->
+    <insert id="regist" parameterType="com.pojo.Student">
+        insert into student (sid,sname,passwd) values (#{sid},#{sname},#{passwd});
+    </insert>
+    <insert id="insuserspace">
+        insert into userspace (uid) values (#{uid});
+    </insert>
+    <select id="login" resultType="com.pojo.Student" parameterType="Integer">
+        select * from student
+        where sid = #{_parameter}
+    </select>
+    <select id="homepage" resultType="com.pojo.Student">
+        select sid,sname
+        from student
+    </select>
+    <select id="userspace" resultType="com.pojo.Filespace" parameterType="Integer">
+        select filename,filesize,downnum,ord from filespace
+        where uid = #{_paremeter}
+        order by ord
+    </select>
+    <select id="filebycondiyion" resultType="com.pojo.Filespace">
+        <bind name="condition" value="'%.'+condition+'%'"/>
+        select filename,filesize,downnum,ord from filespace
+        where uid = #{uid} and filename like #{condition}
+        order by ord
+    </select>
+    <update id="download">
+        update filespace set downnum = downnum+1
+        where uid = #{uid} and filename = #{filename};
+    </update>
+    <update id="puttop">
+        update filespace set ord = #{ord}
+        where uid = #{uid} and filename = #{filename};
+    </update>
+    <delete id="del">
+        delete from filespace
+        where uid = #{uid} and filename=#{filename}
+    </delete>
+    <update id="reinfo">
+        update student set sname=#{sname},passwd=#{passwd}
+        where sid = #{sid}
+    </update>
+    <insert id="upload" >
+        insert into filespace (uid,filename,filesize) values (#{uid},#{filename},#{filesize});
+    </insert>
+    <select id="selspace" resultType="com.pojo.Userspace">
+        select usesize,maxsize from userspace
+        where uid = #{uid};
+    </select>
+    <update id="alertsize">
+        update userspace set usesize = #{usesize} where uid = #{uid};
+    </update>
+    <update id="alertmaxsize">
+        update userspace set maxsize = #{maxsize} where uid = #{uid};
+    </update>
+    <select id="seldownnum" resultType="Integer">
+        select sum(downnum) from filespace
+        where uid = #{uid};
+    </select>
+</mapper>

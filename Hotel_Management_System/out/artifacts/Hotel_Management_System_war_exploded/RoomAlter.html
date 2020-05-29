@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/RoomTypeAlter.css">
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script src="js/json2.js"></script>
+<script src="js/RoomAlter.js"></script>
+<script src="js/Application.js"></script>
+<body>
+<hr id="hr1">
+<div id="alter">
+    <div id="alter_1_1">
+        <span id="span1">更新房间</span>
+    </div>
+    <div id="insert">
+        <form action="roomalter" method="post" id="updataform">
+            房间号：&nbsp;&nbsp;&nbsp;<input type="text" name="room_id" id="room_id" class="input" maxlength="3">&nbsp;&nbsp;<span
+                class="span"
+                onclick="edit('ributton','room_id')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton ributton save" value="保存"
+                onclick="updatasub('room_id','ributton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton ributton cancel" value="取消"
+                onclick="canceledit('ributton','room_id')"><br>
+            房型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="room_type" id="room_type" class="input">
+        </select> &nbsp;&nbsp;<span class="span"
+                                    onclick="edit('rtbutton','room_type')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="rtbutton button opbutton save" value="保存"
+                onclick="updatasub('room_type','rtbutton')"
+        >&nbsp;&nbsp;<input
+                type="button" class="rtbutton button opbutton cancel" value="取消"
+                onclick="canceledit('rtbutton','room_type')"><br>
+            入住日期：<input type="date" name="in_date" maxlength="16" id="in_date"
+                        class="input"
+                        required>&nbsp;&nbsp;<span class="span"
+                                                   onclick="edit('idbutton','in_date')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton idbutton save" value="保存"
+                onclick="updatasub('in_date','idbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton idbutton cancel" value="取消"
+                onclick="canceledit('idbutton','in_date')"><br>
+            离店日期：<input type="date" id="out_date" name="out_date" class="input" required> &nbsp;&nbsp;<span class="span"
+                                                                                                            onclick="edit('odbutton','out_date')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton odbutton save" value="保存"
+                onclick="updatasub('out_date','odbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton odbutton cancel" value="取消"
+                onclick="canceledit('odbutton','out_date')"><br>
+        </form>
+    </div>
+</div>
+</body>
+</html>

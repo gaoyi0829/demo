@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人空间</title>
+</head>
+<style>
+    a:link,
+    a:hover,
+    a:visited {
+        color: #009FCC;
+        text-decoration: none;
+    }
+</style>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="js/Application.js"></script>
+<script>
+    var loginid = getCookie("loginid");
+    var loginname = getCookie("loginname");
+    var uid = getUrlString("uid");
+    window.onload = function () {
+        if (loginid != null && loginid != "") {
+            var user = "<span>欢迎访问," + loginname + "</span>"
+            var a = "<a href='Reinfo.html'>修改资料</a>"
+            var a1 = "<a href='Userspace.html'>个人空间</a>"
+            $("#top").append(user);
+            $("#top").append("<br>");
+            $("#top").append(a);
+            $("#top").append("&nbsp;&nbsp;&nbsp;");
+            $("#top").append(a1);
+        } else {
+            var a = "<a href='Login.html'>登陆</a>"
+            $("#top").html(a).append();
+        }
+        $.ajax({
+            url: "userspace",
+            type: "POST",
+            data: {"uid": uid},
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function () {
+                    var fname = "<span>文件名: " + this.filename + "&nbsp;&nbsp;&nbsp;文件大小: " + this.filesize + "kb&nbsp;&nbsp;&nbsp;下载次数:"+this.downnum+"</span>&nbsp;&nbsp;&nbsp;";
+                    var download = "<a href='download?uid="+uid+"&filename="+this.filename+"'>下载</a><br>";
+                    $("#filelist").append(fname);
+                    $("#filelist").append(download);
+                })
+            }
+        });
+    }
+
+    function selfile() {
+        var type = document.getElementById("filetype").value;
+        $.ajax({
+            url: "filebycondiyion",
+            type: "POST",
+            data: {"condition": type, "uid": uid},
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('filelist').innerHTML = "";
+                $.each(data, function () {
+                    var fname = "<span>文件名: " + this.filename + "&nbsp;&nbsp;&nbsp;文件大小: " + this.filesize + "kb&nbsp;&nbsp;&nbsp;下载次数:"+this.downnum+"</span>&nbsp;&nbsp;&nbsp;";
+                    var download = "<a href='download?uid="+uid+"&filename="+this.filename+"'>下载</a><br>";
+                    $("#filelist").append(fname);
+                    $("#filelist").append(download);
+                })
+            }
+        });
+    }
+</script>
+<body>
+<div style="float: left"><a href="Homepage.html">返回主页</a> </div>
+<div id="top" style="float: right"></div>
+<div id="otherpage" style="margin-top: 100px;float: left">
+    <span>文件列表</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    文件类型:<select id="filetype" onchange="selfile()">
+    <option value="all">默认</option>
+    <option value="txt">.txt</option>
+    <option value="doc">.doc</option>
+    <option value="png">.png</option>
+</select>
+    <hr>
+    <div id="filelist"></div>
+</div>
+</body>
+</html>

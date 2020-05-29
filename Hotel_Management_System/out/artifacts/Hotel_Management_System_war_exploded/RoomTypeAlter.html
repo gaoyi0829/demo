@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="css/RoomTypeAlter.css">
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script src="js/json2.js"></script>
+<script src="js/RoomTypeAlter.js"></script>
+<script src="js/Application.js"></script>
+<body>
+<hr id="hr1">
+<div id="alter">
+    <div id="alter_1_1">
+        <span id="span1">更新房型</span>
+    </div>
+    <div id="insert">
+        <form action="filminsert" method="post" id="updataform" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" id="file" onchange="showimg()">
+            预览：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="img-room_type"></div>
+            <input type="button" name="img-upload" id="img-upload" value="上传"><br>
+            房型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="room_type" maxlength="10" id="room_type"
+                                                          class="input"
+                                                          required>&nbsp;&nbsp;<span class="span"
+                                                                                     onclick="edit('rtbutton','room_type')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="rtbutton button opbutton save" value="保存"
+                onclick="updatasub('room_type','rtbutton')"
+        >&nbsp;&nbsp;<input
+                type="button" class="rtbutton button opbutton cancel" value="取消"
+                onclick="canceledit('rtbutton','room_type')"><br>
+            床型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="bed_type" maxlength="16" id="bed_type"
+                                                          class="input"
+                                                          required>&nbsp;&nbsp;<span class="span"
+                                                                                     onclick="edit('btbutton','bed_type')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton btbutton save" value="保存"
+                onclick="updatasub('bed_type','btbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton btbutton cancel" value="取消"
+                onclick="canceledit('btbutton','bed_type')"><br>
+            早餐：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="food" name="food" class="input">
+            <option value="有餐食">有</option>
+            <option value="无餐食">无</option>
+        </select> &nbsp;&nbsp;<span class="span"
+                                    onclick="edit('fdbutton','food')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton fdbutton save" value="保存"
+                onclick="updatasub('food','fdbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton fdbutton cancel" value="取消"
+                onclick="canceledit('fdbutton','food')"><br>
+            设施服务：<input type="text" name="room_service" maxlength="10"
+                        id="room_service" class="input"
+                        required>&nbsp;&nbsp;<span class="span"
+                                                   onclick="edit('rsbutton','room_service')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton rsbutton save" value="保存"
+                onclick="updatasub('room_service','rsbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton rsbutton cancel" value="取消"
+                onclick="canceledit('rsbutton','room_service')"><br>
+            最多入住：<input type="text" name="maxnum" maxlength="2" id="maxnum"
+                        class="input"
+                        required>&nbsp;&nbsp;<span class="span"
+                                                   onclick="edit('mnbutton','maxnum')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton mnbutton save" value="保存"
+                onclick="updatasub('maxnum','mnbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton mnbutton cancel" value="取消"
+                onclick="canceledit('mnbutton','maxnum')"><br>
+            价格：&nbsp;&nbsp;&nbsp;&nbsp;¥<input type="text" name="price" maxlength="6" id="price"
+                                               class="input"
+                                               required>&nbsp;&nbsp;<span class="span"
+                                                                          onclick="edit('prbutton','price')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton prbutton save" value="保存"
+                onclick="updatasub('price','prbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton prbutton cancel" value="取消"
+                onclick="canceledit('prbutton','price')"><br>
+            房间面积：<input type="text" name="room_area" maxlength="6" id="room_area" class="input"
+                        required>&nbsp;&nbsp;<span
+                class="span"
+                onclick="edit('rabutton','room_area')">修改</span>&nbsp;&nbsp;<input type="button"
+                                                                                   class="button opbutton rabutton save"
+                                                                                   value="保存"
+                                                                                   onclick="updatasub('room_area','rabutton')"
+        >&nbsp;&nbsp;<input
+                type="button" class="button opbutton rabutton cancel" value="取消"
+                onclick="canceledit('rabutton','room_area')"><br>
+            床宽：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="bed_length" maxlength="33" id="bed_length"
+                                                          class="input"
+                                                          required>&nbsp;&nbsp;<span class="span"
+                                                                                     onclick="edit('blbutton','bed_length')">修改</span>&nbsp;&nbsp;<input
+                type="button"
+                class="button opbutton blbutton save" value="保存"
+                onclick="updatasub('bed_length','blbutton')">&nbsp;&nbsp;<input
+                type="button" class="button opbutton blbutton cancel" value="取消"
+                onclick="canceledit('blbutton','bed_length')"><br>
+            窗户：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="window" name="window" class="input">
+            <option value="有窗">有</option>
+            <option value="无窗">无</option>
+        </select>&nbsp;&nbsp;<span
+                class="span"
+                onclick="edit('wdbutton','window')">修改</span>&nbsp;&nbsp;<input type="button"
+                                                                                class="button opbutton wdbutton save"
+                                                                                value="保存"
+                                                                                onclick="updatasub('window','wdbutton')"
+        >&nbsp;&nbsp;<input
+                type="button" class="button opbutton wdbutton cancel" value="取消"
+                onclick="canceledit('wdbutton','window')"><br>
+        </form>
+    </div>
+</div>
+</body>
+</html>

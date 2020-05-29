@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+    					 http://www.springframework.org/schema/beans/spring-beans.xsd
+       					 http://www.springframework.org/schema/context 
+       					 http://www.springframework.org/schema/context/spring-context.xsd
+       					 http://www.springframework.org/schema/aop
+       					 http://www.springframework.org/schema/aop/spring-aop.xsd
+						 http://www.springframework.org/schema/tx
+       					 http://www.springframework.org/schema/tx/spring-tx.xcd">
+
+	<!--  添加spring注释得命名空间的声明 context标记  -->
+	<!--
+     1.声明Spring要进行扫描管理的包名
+            base-package="com.vo"  : 当前包以及子包下的所有类
+            base-package="com.vo.*  "  : 当前包的子包下的所有类
+            如果出现多个包，进行连续声明，包之间以 逗号 分隔
+    -->
+	<context:component-scan base-package="com.vo,com.service,com.advice"/>
+	<!--   <bean init-method="" destroy-method=""></bean> -->
+	<aop:aspectj-autoproxy/>
+	<!--  事务的声明和配置  -->
+	<!--  Spring和Mybatis的整合  -->
+	<!--  1.创建一个数据源  -->
+	<!--
+     数据源封装类 .数据源:获取数据库连接,spring-jdbc.jar中
+                    扩展：使用数据库配置文件 *.properties ${key}
+                    <context:property-placeholder/>
+    -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/20174119?serverTimezone=UTC"/>
+		<property name="username" value="root"/>
+		<property name="password" value="123456"/>
+	</bean>
+	<!--  2.声明事务管理器 txManager 所有的事物的管理的代码 都由事务管理器完成 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!--  3.配置声明式的事物  -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<!--  配置哪些方法需要事务的管理  -->
+			<tx:method name="addUser" propagation="REQUIRED" read-only="false"/>
+			<!--  指定一个具体的方法名  -->
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<!--  通配符的事务管理  -->
+		</tx:attributes>
+	</tx:advice>
+	<!--  4.声明事务管理的切面  -->
+	<aop:config>
+		<!--
+         指定具体的一个方法
+                    <aop:pointcut expression="execution(* com.service.UserService.addUser())" id="mypoint1"/>
+        -->
+		<!--  使用通配符的方式 配置且米娜 管理所有的服务类  -->
+		<aop:pointcut expression="execution(* com.service.*.*(..))" id="mypoint"/>
+		<!--  进行事务的织入  -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="mypoint"/>
+	</aop:config>
+	<!--  創建一個session的工厂  -->
+	<bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!--  在工厂中指定数据源  -->
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	</beans>
+	
+	
+	
+	
+	
+	
+	
+	
+	
