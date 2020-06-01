@@ -6,6 +6,8 @@
 </head>
 <link rel="stylesheet" href="css/HotelHome.css"/>
 <link rel="stylesheet" href="css/HotelTop.css"/>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<script src="layui/layui.js"></script>
 <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
 <script src="js/json2.js"></script>
 <script src="js/HotelTop.js"></script>
@@ -31,9 +33,15 @@
         <iframe id="popup"></iframe>
     </div>
 </div>
-<div class="showpage">
-    <img src="BackImg/Scrollshow1.png" class="showimg">
-</div>
+<div class="layui-carousel" id="Scroll">
+    <div carousel-item>
+      <div><img src="BackImg/Scrollshow1.png" class="showimg"></div>
+      <div><img src="BackImg/Scrollshow2.png" class="showimg"></div>
+      <div><img src="BackImg/Scrollshow3.png" class="showimg"></div>
+      <div><img src="BackImg/Scrollshow4.png" class="showimg"></div>
+      <div><img src="BackImg/Scrollshow5.png" class="showimg"></div>
+    </div>
+  </div>
 <div class="showpage" id="seldiv">
     <div style="width: 100%">
         <img src="BackImg/order.png">

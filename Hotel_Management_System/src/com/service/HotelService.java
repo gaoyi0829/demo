@@ -49,8 +49,8 @@ public class HotelService {
         hotelMapper.roomtypeinsert(hotel);
     }
 
-    public List<Room> selroomlist(Integer page) {
-        return hotelMapper.selroomlist(page);
+    public List<Room> selroomlist(Integer page,Integer limit) {
+        return hotelMapper.selroomlist(page,limit);
     }
 
     public void roomtypeDelByType(String room_type) {

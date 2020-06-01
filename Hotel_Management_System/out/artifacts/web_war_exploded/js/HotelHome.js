@@ -4,6 +4,18 @@ window.onload = function () {
     application();
 }
 
+layui.use('carousel', function () {
+    var carousel = layui.carousel;
+    //建造实例
+    carousel.render({
+        elem: '#Scroll',
+        width: '100%' ,//设置容器宽度
+        height: '550px',
+        arrow: 'always' //始终显示箭头
+        //,anim: 'updown' //切换动画方式
+    });
+});
+
 function showtop() {
     var userid = getCookie("userid");
     var username;

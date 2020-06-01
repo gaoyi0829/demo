@@ -1,27 +1,23 @@
 body{
     line-height: 40px;
     width: 600px;
-    background-color: #F3F3F3;
-}
-#hr1{
-    border:0;
-    height:1px;
-    background-color: #AED2DA;
+    background-color: white;
 }
 #alter{
     padding: 20px;
     width: 569px;
     height: 800px;
-    background-color: #FAFAFA;
+    background-color: white;
 }
 #alter_1_1{
-    background-color: #AED2DA;
+    background-color: white;
     height: 50px;
     width: 100%;
     padding-top: 10px;
 }
 #span1{
-    color: #007FBB;font-size: 25px;
+    color: #666666;
+    font-size: 25px;
 }
 #insert{
     float: left;

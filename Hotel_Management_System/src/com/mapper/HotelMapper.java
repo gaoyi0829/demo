@@ -23,7 +23,7 @@ public interface HotelMapper {
 
     public void roomtypeinsert(Hotel hotel);
 
-    public List<Room> selroomlist(@Param("page") Integer page);
+    public List<Room> selroomlist(@Param("page") Integer page,@Param("limit") Integer limit);
 
     public void roomtypeDelByType(@Param("room_type") String room_type);
 

@@ -38,7 +38,7 @@
     </insert>
     <select id="selroomlist" resultType="com.pojo.Room">
         select * from room_info
-        limit #{page},8
+        limit #{page},#{limit}
     </select>
     <delete id="roomtypeDelByType" parameterType="String">
         delete from room_type

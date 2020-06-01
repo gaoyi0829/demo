@@ -58,9 +58,7 @@ function turnpage() {
     });
     $("#page").val(page);
 }
-function del_id(r_id) {
-    var delflag = confirm("是否删除所选信息");
-    if (delflag == true) {
+function del_id(data) {
         $.ajax({
             type: "post",
             url: "http://localhost:8080/Hotel_Management_System_war_exploded/roomdelbyid",
@@ -68,14 +66,15 @@ function del_id(r_id) {
             data: {"r_id": r_id},
             success: function () {
                 alert("删除成功!");
-                sel()
+            },
+            error: function(){
+                alert("删除失败!");
             }
+            
         })
-    } else {
-        alert("取消删除!");
-    }
 }
 
+  
 function del_ids() {
     var delflag = confirm("是否删除所选信息");
     if (delflag == true) {

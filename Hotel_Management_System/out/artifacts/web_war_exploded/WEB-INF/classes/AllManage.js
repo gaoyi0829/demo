@@ -3,27 +3,20 @@ window.onload = function onload() {
     getNowTime();
     stuff_id = getCookie("staff_id");
     serviceshow();
-    $(document).on('click', '.inserthtml', function () {
-        if (staff_id != null && staff_id != "") {
-            function insiframe(html) {
-                $("#opthtml").attr("src", html);
-            }
-        } else {
-            var flag = confirm("请先登陆！");
-            if (flag) {
-                alert("登陆")
-                return false;
-                //    $("#login").click();
-            }
-        }
-    });
+
 }
+
+//JavaScript代码区域
+layui.use('element', function () {
+    var element = layui.element;
+
+});
 
 function serviceshow() {
     if (staff_id != null && staff_id != "") {
         var systemshow = "<a href='http://www.baidu.com' id='alter'>&nbsp;&nbsp;&nbsp;修改密码&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;<a id='logout' onclick='delCookie(\"staff_id\"),window.location=\"http://www.baidu.com\"'>&nbsp;&nbsp;&nbsp;退出系统&nbsp;&nbsp;&nbsp;</a>"
         $("#manage-top-system").html(systemshow)
-    }else{
+    } else {
         var systemshow = "<a href='http://www.baidu.com' id='login'>&nbsp;&nbsp;&nbsp;登陆&nbsp;&nbsp;&nbsp;</a>"
         $("#manage-top-system").html(systemshow)
     }
@@ -52,4 +45,8 @@ function checklogin() {
         alert("请先登陆！")
         return false;
     }
+}
+
+function insiframe(html) {
+    $("#opthtml").attr("src", html);
 }

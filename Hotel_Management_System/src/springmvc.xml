@@ -25,6 +25,7 @@
 	<mvc:resources location="/FilmImg/" mapping="/FilmImg/**"></mvc:resources>
 	<mvc:resources location="/BackImg/" mapping="/BackImg/**"></mvc:resources>
 	<mvc:resources location="/HotelImg/" mapping="/HotelImg/**"></mvc:resources>
+	<mvc:resources location="/layui/" mapping="/layui/**"></mvc:resources>
     <!-- 自定义的添加了视图解析器 -->
      <bean id="resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         	<property name="prefix" value="/"></property><!-- 表示跳转地址目录 -->

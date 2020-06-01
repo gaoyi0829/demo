@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class HotelController {
@@ -104,16 +106,21 @@ public class HotelController {
 
     @RequestMapping("selroomlist")
     @ResponseBody
-    public List<Room> selroom(String page) {
+    public Map<String,Object> selroom(String page,Integer limit) {
         Integer pg = Integer.parseInt(page);
         Integer start = 0;
         if (pg <= 1) {
             start = 0;
         } else {
-            start = (pg - 1) * 8;
+            start = (pg - 1) * 10;
         }
-        rlist = hs.selroomlist(start);
-        return rlist;
+        rlist = hs.selroomlist(start,limit);
+        Map<String,Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("code",0);
+        resultMap.put("msg","");
+        resultMap.put("count",hs.roomnum());
+        resultMap.put("data",rlist);
+        return resultMap;
     }
 
     @RequestMapping("roomdelbytype")

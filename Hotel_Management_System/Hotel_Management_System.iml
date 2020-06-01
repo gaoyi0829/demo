@@ -34,6 +34,7 @@
       <sourceFolder url="file://$MODULE_DIR$/web/css" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/web/HotelImg" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/web/BackImg" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/layui" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

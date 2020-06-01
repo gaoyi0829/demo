@@ -1,7 +1,7 @@
 body{
     line-height: 40px;
     width: 610px;
-    background-color: #F3F3F3;
+    background-color: white;
 }
 #hr1{
     border:0;
@@ -12,16 +12,16 @@ body{
     padding: 20px;
     width: 580px;
     height: 800px;
-    background-color: #FAFAFA;
+    background-color: white;
 }
 #alter_1_1{
-    background-color: #AED2DA;
+    background-color: white;
     height: 50px;
     width: 100%;
     padding-top: 10px;
 }
 #span1{
-    color: #007FBB;
+    color: #666666;
     font-size: 25px;
 }
 #insert{
