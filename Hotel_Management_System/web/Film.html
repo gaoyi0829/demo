@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<script src="layui/layui.js"></script>
+<script src="js/json2.js"></script>
+<script src="js/Application.js"></script>
+<script>
+    function del_id(f_id) {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8080/Hotel_Management_System_war_exploded/filmdelbyid",
+            contentType: 'application/x-www-form-urlencoded',
+            data: {"f_id": f_id},
+            success: function () {
+                alert("删除成功!");
+            },
+            error: function(){
+                alert("删除失败!");
+            }
+
+        })
+    }
+
+
+    function del_ids(f_ids) {
+        $.ajax({
+            type: "post",
+            url: "http://localhost:8080/Hotel_Management_System_war_exploded/filmdelbyids",
+            traditional: true,  //传递数组必须设置此属性
+            data: {"f_ids": f_ids},
+            success: function () {
+                alert("删除成功!");
+            }
+        })
+    }
+</script>
+<body>
+<table class="layui-hide" id="film_list" lay-filter="film_list"></table>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+
+<script src="layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+<script>
+    layui.use('table', function () {
+        var table = layui.table;
+
+        //温馨提示：默认由前端自动合计当前行数据。从 layui 2.5.6 开始： 若接口直接返回了合计行数据，则优先读取接口合计行数据。
+        //详见：https://www.layui.com/doc/modules/table.html#totalRow
+        table.render({
+            elem: '#film_list',
+            url: 'filmlist',
+            toolbar: 'default',
+            title: '影库数据表',
+            cellMinWidth: 80,
+            cols: [
+                [{
+                    type: 'checkbox',
+                    fixed: 'left'
+                }, {
+                    field: 'film_id',
+                    title: 'id',
+                    fixed: 'left',
+                    sort: true
+                }, {
+                    field: 'film_name',
+                    title: '片名',
+                }, {
+                    field: 'director',
+                    title: '导演',
+                }, {
+                    field: 'screen_writer',
+                    title: '编剧',
+                },{
+                    field: 'actor',
+                    title: '演员',
+                },{
+                    field: 'film_type',
+                    title: '类型',
+                },{
+                    field: 'producer_country',
+                    title: '制片国家',
+                },{
+                    field: 'language',
+                    title: '语言',
+                },{
+                    field: 'release_date',
+                    title: '上映日期',
+                },{
+                    field: 'film_length',
+                    title: '片长',
+                },{
+                    field: 'score',
+                    title: '评分',
+                }, {
+                    field: 'brief_introduction',
+                    title: '影片简介',
+                },{
+                    fixed: 'right',
+                    title: '操作',
+                    toolbar: '#barDemo',
+                }]
+            ],
+            page: true
+        });
+
+        //工具栏事件
+        table.on('toolbar(film_list)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id),
+                data = checkStatus.data; //获取选中的数据
+            switch (obj.event) {
+                case 'add':
+                    layer.open({
+                        type: 2,
+                        content: ['FilmInsert.html', 'no'], //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+                        title: '修改房间', //页面标题
+                        area: ['650px', '900px'],  //弹出层页面比例
+                    });
+                    break;
+                case 'update':
+                    if (data.length === 0) {
+                        layer.msg('请选择一行');
+                    } else if (data.length > 1) {
+                        layer.msg('只能同时编辑一个');
+                    } else {
+                        SetCookie("film_id", checkStatus.data[0].film_id)
+                        layer.open({
+                            type: 2,
+                            content: ['FilmAlter.html', 'no'],
+                            title: '修改影片', //页面标题
+                            area: ['650px', '900px'],  //弹出层页面比例
+                        });
+                    }
+                    break;
+                case 'delete':
+                    if (data.length === 0) {
+                        layer.msg('请选择一行');
+                    } else {
+                        layer.confirm('是否删除选中影片', function (index) {
+                            var f_ids = new Array();
+                            f_ids = [];
+                            for (let i = 0; i < data.length; i++) {
+                                f_ids[i] = checkStatus.data[i].film_id;
+                            }
+                            del_ids(f_ids);
+                            table.reload('film_list', {
+                                url: 'filmlist'
+                                ,where: {} //设定异步数据接口的额外参数
+                                //,height: 300
+                            });
+                            layer.close(index);
+                        })
+                    }
+                    break;
+            }
+            ;
+        });
+        table.on('tool(film_list)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                ,
+                layEvent = obj.event; //获得 lay-event 对应的值
+            if (layEvent === 'edit') {
+                SetCookie("film_id", data.film_id)
+                layer.open({
+                    type: 2,
+                    content: ['FilmAlter.html', 'no'],
+                    title: '修改影片', //页面标题
+                    area: ['650px', '900px'],  //弹出层页面比例
+                });
+            } else if (layEvent === 'del') {
+                layer.confirm('是否id为' + data.film_id+"的影片", function (index) {
+                    del_id(data.film_id);
+                    obj.del();
+                    layer.close(index);
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@ public interface HotelMapper {
 
     public Hotel selRoomByType(@Param("room_type") String room_type);
 
-    public List<Hotel> selRoomType(@Param("page") Integer page);
+    public List<Hotel> selRoomType(@Param("page") Integer page,@Param("limit") Integer limit);
 
     public Integer roomcount();
 

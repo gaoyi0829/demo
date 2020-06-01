@@ -43,6 +43,7 @@ input#img-upload {
     width: 60px;
     background-color: #0099FF;
     border-radius: 10px;
+    border: none;
     color: white;
 }
 
@@ -50,6 +51,7 @@ input.button {
     height: 31px;
     width: 60px;
     border-radius: 10px;
+    border: none;
     color: white;
 }
 

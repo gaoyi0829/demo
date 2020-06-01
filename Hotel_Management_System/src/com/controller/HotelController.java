@@ -54,10 +54,15 @@ public class HotelController {
 
     @RequestMapping("roomtypelist")
     @ResponseBody
-    public List<Hotel> selRoomType(Integer page) {
+    public Map<String,Object> selRoomType(Integer page,Integer limit) {
         page = page - 1;
-        hlist = hs.selRoomType(page);
-        return hlist;
+        hlist = hs.selRoomType(page,limit);
+        Map<String,Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("code",0);
+        resultMap.put("msg","");
+        resultMap.put("count",hs.roomcount());
+        resultMap.put("data",hlist);
+        return resultMap;
     }
 
     @RequestMapping("roomcount")

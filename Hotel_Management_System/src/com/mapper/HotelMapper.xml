@@ -18,7 +18,7 @@
     </select>
     <select id="selRoomType" resultType="com.pojo.Hotel">
         select * from room_type
-        limit #{page},8;
+        limit #{page},#{limit};
     </select>
     <select id="roomcount" resultType="Integer">
         select count(*)

@@ -46,8 +46,9 @@ input#file {
 input#img-upload {
     height: 31px;
     width: 60px;
-    background-color: #0099FF;
+    background-color: #1CA0FF;
     border-radius: 10px;
+    border: none;
     color: white;
 }
 
@@ -55,6 +56,7 @@ input.button {
     height: 31px;
     width: 60px;
     border-radius: 10px;
+    border: none;
     color: white;
 }
 
@@ -63,7 +65,7 @@ div#img-room_type {
     display: inline;
 }
 .save{
-    background-color: #00AEE6;
+    background-color: #1CA0FF;
 }
 .cancel{
     background-color: #CCCCCC;

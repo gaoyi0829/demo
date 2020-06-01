@@ -1,6 +1,6 @@
 var staff_id = null;
 window.onload = function onload() {
-    getNowTime();
+    //getNowTime();
     stuff_id = getCookie("staff_id");
     serviceshow();
 

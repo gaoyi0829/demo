@@ -29,8 +29,8 @@ public class HotelService {
         return hotelMapper.selRoomByType(room_type);
     }
 
-    public List<Hotel> selRoomType(Integer page) {
-        return hotelMapper.selRoomType(page);
+    public List<Hotel> selRoomType(Integer page,Integer limit) {
+        return hotelMapper.selRoomType(page,limit);
     }
 
     public Integer roomcount() {

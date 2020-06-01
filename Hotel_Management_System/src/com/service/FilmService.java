@@ -43,12 +43,16 @@ public class FilmService {
         return filmmapper.FilmGetmore(page, condition);
     }
 
-    public List<Film> FilmList(Integer page, String condition) {
-        return filmmapper.FilmList(page, condition);
+    public List<Film> FilmList(Integer page, Integer limit) {
+        return filmmapper.FilmList(page, limit);
     }
 
     public Integer FilmCount(String condition) {
         return filmmapper.FilmCount(condition);
+    }
+
+    public Integer FilmNum() {
+        return filmmapper.FilmNum();
     }
 
     public void filmDelById(Integer film_id) {

@@ -46,14 +46,9 @@
         limit #{page},10
     </select>
     <select id="FilmList" resultType="com.pojo.Film">
-        select film_name,poster,film_id,director,film_length,film_type,score
+        select *
         from film_gallery
-        <where>
-            <if test="condition!=null and condition!=''">
-                film_name like ${condition}
-            </if>
-        </where>
-        limit #{page},8
+        limit #{page},#{limit}
     </select>
     <select id="FilmCount" resultType="Integer">
         select count(*)
@@ -63,6 +58,10 @@
                 film_name like ${condition}
             </if>
         </where>
+    </select>
+    <select id="FilmNum" resultType="Integer">
+        select count(*)
+        from film_gallery
     </select>
     <insert id="FilmInsert" parameterType="com.pojo.Film">
         insert into film_gallery (poster,film_name,director,screen_writer,actor,film_type,producer_country,language,release_date,film_length,brief_introduction,score)

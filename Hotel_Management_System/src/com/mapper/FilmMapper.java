@@ -20,9 +20,11 @@ public interface FilmMapper {
 
     public List<Film> FilmGetmore(@Param("page") Integer page, @Param("condition") String condition);
 
-    public List<Film> FilmList(@Param("page") Integer page, @Param("condition") String condition);
+    public List<Film> FilmList(@Param("page") Integer page, @Param("limit") Integer limit);
 
     public Integer FilmCount(@Param("condition") String condition);
+
+    public Integer FilmNum();
 
     public void filmDelById(@Param("film_id") Integer film_id);
 

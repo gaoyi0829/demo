@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,21 +91,21 @@ public class FilmController {
 
     @RequestMapping("filmlist")
     @ResponseBody
-    public List<Film> filmList(String page, String condition, HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public Map<String,Object> filmList(String page, Integer limit, HttpServletRequest req, HttpServletResponse res) throws Exception {
         Integer pg = Integer.parseInt(page);
         Integer start = 0;
         if (pg <= 1) {
             start = 0;
         } else {
-            start = (pg - 1) * 8;
+            start = (pg - 1) * 10;
         }
-        if (condition.equals("搜索电影")) {
-            condition = null;
-        } else {
-            condition = "'%" + condition + "%'";
-        }
-        flist = fs.FilmList(start, condition);
-        return flist;
+        flist = fs.FilmList(start,limit);
+        Map<String,Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("code",0);
+        resultMap.put("msg","");
+        resultMap.put("count",fs.FilmNum());
+        resultMap.put("data",flist);
+        return resultMap;
     }
 
     @RequestMapping("filmcount")
