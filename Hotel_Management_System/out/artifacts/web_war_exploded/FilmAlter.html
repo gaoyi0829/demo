@@ -24,8 +24,9 @@
     input#img-upload {
         height: 31px;
         width: 60px;
-        background-color: #0099FF;
+        background-color: #1CA0FF;
         border-radius: 10px;
+        border: none;
         color: white;
     }
 
@@ -33,6 +34,7 @@
         height: 31px;
         width: 60px;
         border-radius: 10px;
+        border: none;
         color: white;
     }
 
@@ -147,11 +149,10 @@
         $("#release_date").attr("max", year + "-" + month + "-" + date);
     })
 </script>
-<body style="line-height: 40px;width: 610px;background-color: #F3F3F3;">
-<hr style="border:0;height:1px;background-color: #AED2DA;">
-<div id="alter" style="padding: 20px;width: 580px;height: 800px;;background-color: #FAFAFA;">
-    <div id="alter_1_1" style="background-color: #AED2DA;height: 50px;width: 100%;padding-top: 10px;">
-        <span style="color: #007FBB;font-size: 25px;">更新影片</span>
+<body style="line-height: 40px;width: 610px;background-color: white;">
+<div id="alter" style="padding: 20px;width: 580px;height: 800px;;background-color: white;">
+    <div id="alter_1_1" style="background-color: white;height: 50px;width: 100%;padding-top: 10px;">
+        <span style="color: #666666;font-size: 25px;">更新影片</span>
     </div>
     <div id="insert" style="float: left;">
         <form action="filminsert" method="post" id="updataform" style="color: #999999;" enctype="multipart/form-data">
@@ -164,7 +165,7 @@
                 type="button"
                 class="fnbutton button opbutton" value="保存"
                 onclick="updatasub('film_name','fnbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="fnbutton button opbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('fnbutton','film_name')"><br>
             导演：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="director" maxlength="16" id="director"
                                                           class="input"
@@ -173,7 +174,7 @@
                 type="button"
                 class="button opbutton dtbutton" value="保存"
                 onclick="updatasub('director','dtbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton dtbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('dtbutton','director')"><br>
             编剧：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="screen_writer" maxlength="33"
                                                           id="screen_writer" class="input"
@@ -182,7 +183,7 @@
                 type="button"
                 class="button opbutton swbutton" value="保存"
                 onclick="updatasub('screen_writer','swbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton swbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('swbutton','screen_writer')"><br>
             演员：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="actor" maxlength="133" id="actor"
                                                           class="input"
@@ -191,7 +192,7 @@
                 type="button"
                 class="button opbutton acbutton" value="保存"
                 onclick="updatasub('actor','acbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton acbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('acbutton','actor')"><br>
             类型：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="film_type" maxlength="33" id="film_type"
                                                           class="input"
@@ -200,7 +201,7 @@
                 type="button"
                 class="button opbutton tpbutton" value="保存"
                 onclick="updatasub('film_type','tpbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton tpbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('tpbutton','film_type')"><br>
             制片国家：<input type="text" name="producer_country" maxlength="10" id="producer_country" class="input" required>&nbsp;&nbsp;<span
                 class="span"
@@ -208,7 +209,7 @@
                                                                                           class="button opbutton pcbutton"
                                                                                           value="保存"
                                                                                           onclick="updatasub('producer_country','pcbutton')"
-                                                                                          style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                                                                                          style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton pcbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('pcbutton','producer_country')"><br>
             语言：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="language" maxlength="50" id="language"
                                                           class="input"
@@ -217,7 +218,7 @@
                 type="button"
                 class="button opbutton lgbutton" value="保存"
                 onclick="updatasub('language','lgbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton lgbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('lgbutton','language')"><br>
             上映日期：<input type="date" name="release_date" id="release_date" class="input" required>&nbsp;&nbsp;<span
                 class="span"
@@ -225,7 +226,7 @@
                                                                                       class="button opbutton rdbutton"
                                                                                       value="保存"
                                                                                       onclick="updatasub('release_date','rdbutton')"
-                                                                                      style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                                                                                      style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton rdbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('rdbutton','release_date')"><br>
             时长：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="film_length" maxlength="5" id="film_length"
                                                           class="input"
@@ -234,7 +235,7 @@
                 type="button"
                 class="button opbutton flbutton" value="保存"
                 onclick="updatasub('film_length','flbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton flbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('flbutton','film_length')"><br>
             评分：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="score" maxlength="3" id="score"
                                                           class="input"
@@ -243,7 +244,7 @@
                 type="button"
                 class="button opbutton scbutton" value="保存"
                 onclick="updatasub('score','scbutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton scbutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('scbutton','score')"><br>
             剧情简介：
             <textarea id="brief_introduction" name="brief_introduction" class="input" style="width: 300px;height: 100px"
@@ -253,7 +254,7 @@
                 type="button"
                 class="button opbutton bibutton" value="保存"
                 onclick="updatasub('brief_introduction','bibutton')"
-                style="background-color: #00AEE6">&nbsp;&nbsp;<input
+                style="background-color: #1CA0FF">&nbsp;&nbsp;<input
                 type="button" class="button opbutton bibutton" value="取消" style="background-color: #CCCCCC" onclick="canceledit('bibutton','brief_introduction')"><br>
         </form>
     </div>

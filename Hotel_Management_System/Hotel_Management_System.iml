@@ -35,6 +35,10 @@
       <sourceFolder url="file://$MODULE_DIR$/web/HotelImg" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/web/BackImg" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/web/layui" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/web/HeadImg" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web/bootstrap-3.3.7-dist" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/web/bootstrapValidator" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/web/Vue" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

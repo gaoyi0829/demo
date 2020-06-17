@@ -128,6 +128,7 @@ public class FilmController {
 
     @RequestMapping("filmdelbyids")
     public void filmDelByIds(Integer[] f_ids, HttpServletRequest req, HttpServletResponse res) throws Exception {
+        System.out.println("==============filmdelbbyids");
         List<Integer> flim_ids = new ArrayList<Integer>();
         for (int i = 0; i < f_ids.length; i++) {
             flim_ids.add(f_ids[i]);

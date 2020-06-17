@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ceyan3.dao.PersonDao"><!--namespace:定义一个操作包  -->
+    <select id="select" resultType="com.ceyan3.entity.Person">
+    select * from ceyan3 where name=#{name};
+</select>
+    <update id="updata" parameterType="com.ceyan3.entity.Person">
+        update ceyan3 set  =  where ;
+    </update>
+</mapper>

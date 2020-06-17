@@ -53,6 +53,7 @@ a#film {
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 1;
 }
 
 .modal .container {
@@ -122,6 +123,7 @@ input#selroom {
     width: 60px;
     background-color: #0099FF;
     border-radius: 10px;
+    border: none;
     color: white;
 }
 .anchor_point{
@@ -169,7 +171,7 @@ input#selroom {
 }
 #anchor_point-bottom{
     width: 100%;
-    margin-top: 18px;
+    margin-top: 23px;
     background-color: #74A2DE;
     height: 1px;
 }
@@ -341,4 +343,10 @@ th {
 }
 .img-hotel_info{
 width: 100%;
+}
+
+#pjiframe{
+    border: none;
+    width: 100%;
+    height: 900px;
 }

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<script src="layui/layui.js"></script>
+<body class="layui-form-contenner" style="margin-left:2%;margin-right:2%;margin-top:3%">
+
+
+<fieldset class="layui-elem-field layui-field-title">
+    <legend style="font-size: 40px">评价列表(管理员版)</legend>
+</fieldset>
+
+<div class="searchApp2" >
+    按房间类型查询：
+    <form class="layui-form" action="" lay-filter="searchAppraise">
+        <div class="layui-inline">
+            <select id="searchACondition" name="searchACondition" div class="layui-input" required   style="width: 300px"   autocomplete="off" lay-filter="searchACondition">
+                <option value="" selected="selected"></option>
+                <option value="主题景观双床房">主题景观双床房</option>
+                <option value="主题景观大床房">主题景观大床房</option>
+                <option value="主题景观家庭房">主题景观家庭房</option>
+                <option value="主题景观豪华房">主题景观豪华房</option>
+                <option value="商务景观家庭房">商务景观家庭房</option>
+            </select>
+        </div>
+        <button class="layui-btn" lay-submit lay-filter="SformSub" id="SformSub">查询</button>
+    </form>
+</div>
+
+<script src="layui/layui.js"></script>
+<table class="layui-hide" id="appsTable" lay-filter="appsTable"></table>
+
+<script>
+    layui.use(['form','layer','rate','table','laydate'],function(){  //如果只加载一个模块，可以不填数组。如：layui.use('form')
+        var table = layui.table;
+        var layer = layui.layer;
+        var form  = layui.form;
+        var rate  = layui.rate;
+        var laydate  = layui.laydate;
+        $ = layui.jquery;
+
+
+
+        //监听提交按钮
+        form.on('submit(SformSub)', function(text){
+            var searchForm=form.val("searchAppraise") //form.val(xxx) xxx:layfilter的值
+
+            table.reload('appsReload',{
+                page: {
+                    //   curr: 1 //重新从第 1 页开始
+                    curr:$(".layui-laypage-em").next().html()
+                }
+                ,where: {
+                    pageName:1,    //默认page
+                    limitName:1,    //默认limit
+                    condition:searchForm.searchACondition
+                },
+
+            }, 'data');
+            $('#searchACondition').val('');
+            $('#searchACondition').length=0;
+            return false;
+
+        });
+
+        //实例化一个控件
+        table.render({
+            elem: '#appsTable' //table的id
+            ,url:'appsList2'  //数据接口
+            ,method:'post'
+            ,page: true //开启分页
+            ,toolbar:'default'
+            ,limit:10
+            ,limits:[10]
+            ,cols: [[//表头
+                {type: 'checkbox', fixed: 'left'}
+                ,{field:'appraise_id', title: '编号',sort: true,align : 'center'}
+                ,{field:'customer_id', title: '客户身份证号',sort: false,align : 'center'}
+                ,{field:'appraise_star', title: '星级评价',sort: true,align : 'center'}
+                ,{field:'room_type', title: '房间类型',sort: false,align : 'center'}
+                ,{field:'customer_name', title: '客户昵称',sort: false,align : 'center'}
+                ,{field:'appraise_content', title: ' 评价内容',sort: false}
+                ,{field:'appraise_date', title: '评价时间',sort: true,align : 'center'}
+                ,{field:'appraise_reply', title: '回复',sort: false}
+                ,{field:'reply_date', title: '回复时间',sort: false,align : 'center'}
+
+            ]]
+            ,where: {condition:''}
+            ,id:'appsReload'
+            ,request:{
+                pageName:'appsPage',    //默认page
+                limitName:'appsSize'
+
+            }
+        });
+        //监听员工列表头工具栏事件	//-----------------------------------------------------------------------------------监听员工列表  头工具栏事件
+        table.on('toolbar(appsTable)', function(obj){
+            var form  = layui.form;
+            var checkStatus = table.checkStatus(obj.config.id)
+                ,data = checkStatus.data //获取选中的数据
+                ,appId=[]
+                //传递被选中id的list
+                ,cusId=[]
+                ,appStar=[]
+                ,roomType=[]
+                ,cusName=[]
+                ,appContent=[]
+                ,appDate=[]
+                ,appReply=[]
+                ,replyDate=[];
+            //------------------------------------------------------------------------------------------------------获取被选中项的各项信息的list
+            data.forEach(function(n,i){
+                appId.push(n.appraise_id);
+
+            });
+
+            data.forEach(function(n,i){
+                cusId.push(n.customer_id);
+
+            });
+            data.forEach(function(n,i){
+                appStar.push(n.appraise_star);
+
+            });
+            data.forEach(function(n,i){
+                roomType.push(n.room_type);
+
+            });
+            data.forEach(function(n,i){
+                cusName.push(n.customer_name);
+
+            });
+
+            data.forEach(function(n,i){
+                appContent.push(n.appraise_content);
+
+            });
+            data.forEach(function(n,i){
+                appDate.push(n.appraise_date);
+
+            });
+            data.forEach(function(n,i){
+                appReply.push(n.appraise_reply);
+
+            });
+            data.forEach(function(n,i){
+                replyDate.push(n.reply_date);
+
+            });
+
+            console.log(cusId)
+            console.log(typeof cusId)
+            var ayon1=-1,
+                dyon1=-1;
+            switch(obj.event){
+                case 'add':					//-----------------------------------------------------------------------------------头工具点击添加
+                    if(data.length === 0){
+                        layer.msg('管理员无法添加评价');
+                    } else {
+                        layer.msg('管理员无法添加评价');
+                    }
+                    break;
+                case 'update':		//-----------------------------------------------------------------------------------头工具点击修改
+                    if(data.length === 0){
+                        layer.msg('请选择一行');
+                    } else if(data.length > 1){
+                        layer.msg('只能同时编辑一个');
+                    } else {
+                        //-----------------------------------------------------------------------------------弹出修改信息弹出层
+                        layerIndex=layer.open({
+                            closeBtn: 1,
+                            type: 1,
+                            area: ['500px', '700px'],
+                            shadeClose: true, //点击遮罩关闭
+                            content: $('#updateAppraise').html(),
+                            success: function(layero, index){
+
+
+
+
+                                form.render();
+                                //打开修改弹出框自动填入员工原本的信息
+                                form.val("updAppsTable", { //formTest 即 class="layui-form" 所在元素属性 lay-filter="" 对应的值
+                                    "appraise_id": appId// "name": "value"
+                                    ,"customer_id": cusId
+                                    ,"appraise_star": appStar
+                                    ,"room_type": roomType
+                                    ,"customer_name": cusName
+                                    ,"appraise_content": appContent
+                                    ,"appraise_date": appDate
+                                    ,"appraise_reply": appReply
+                                    ,"reply_date": replyDate
+
+                                });
+                            }
+                        });
+
+                        laydate.render({
+                            elem: '#u_reply_date',
+                            type:'datetime',
+                            value: new Date(),
+                        });
+                        form.on('submit(updateformsub)', function(text){               //修改信息弹出框的提交按钮监听
+                            var updInf=form.val("updAppsTable")       //获取表单信息
+                            $.post({
+                                url:'updateAppraise',
+                                data:{
+                                    'appId':updInf.appraise_id,
+                                    'cusId':updInf.customer_id,
+                                    'appStar':updInf.appraise_star,
+                                    'roomType':updInf.room_type,
+                                    'cusName':updInf.customer_name,
+                                    'appContent':updInf.appraise_content,
+                                    'appDate':updInf.appraise_date,
+                                    'appReply':updInf.appraise_reply,
+                                    'replyDate':updInf.reply_date
+
+                                    //'txt':encodeURI(document.getElementById("txt").value)
+                                    // 'txt':JSON.stringify(text.field)
+                                },
+                                success:function(data){
+                                    console.log(data);
+                                }
+
+                            })
+
+                            //layer.close(layerIndex); //再执行关闭
+                            window.location.reload();// 刷新页面
+                            layer.msg('修改成功！');
+                            return false;
+                        });
+                    }
+                    break;
+                case 'delete':			//-----------------------------------------------------------------------------------头工具点击删除
+                    if(data.length === 0){
+                        layer.msg('请选择一行');
+                    } else {
+                        layer.msg('删除');
+                        if(appId!=''){
+                            layer.confirm('确定删除所选项吗？',function(index){
+                                $.post({
+                                    url:'delAppraise',
+                                    data:
+                                        "appId="+appId,
+                                    success:function(dyon){
+                                        dyon1=dyon;
+                                        console.log("dyon=========="+typeof dyon);
+                                        console.log("dyon1=========="+typeof dyon1);
+                                        console.log("dyon=========="+dyon);
+                                        console.log("dyon1=========="+dyon1);
+                                        if(dyon1==1){
+                                            layer.msg('删除成功！');
+                                            window.location.reload();// 刷新页面
+                                        }else if(dyon1==0){
+                                            layer.msg('删除失败')
+                                        }else{
+                                            layer.msg("error");
+                                        }
+                                    }
+
+                                })
+                            })
+                        }else{
+                            layer.msg('请选择一行');
+                        }
+
+
+
+
+                    }
+                    break;
+            };
+        });
+
+
+
+
+    });
+</script>
+
+<script type="text/html" id="addApps">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px; margin-bottom: 30px">
+        <legend style="font-size: 20px">添加评价</legend>
+    </fieldset>
+    <form class="layui-form" action="" lay-filter="addAppsTable">
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价编号</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_id" name="appraise_id" required  lay-verify="required|appId" placeholder="请输入评价编号（最多7位数字且不能以0开头）" autocomplete="off" class="layui-input" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户编号</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_customer_id" name="customer_id" required  lay-verify="required|cusId" placeholder="请输入用户编号（最多7位数字且不能以0开头！）" autocomplete="off" class="layui-input" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">房间类型</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_room_type" name="room_type" required  lay-verify="required|roomType" placeholder="请输入房间类型" autocomplete="off" class="layui-input" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户姓名</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_customer_name" name="customer_name" required  lay-verify="required|cusName" placeholder="请输入姓名号（最多6个汉字）" autocomplete="off" class="layui-input"  style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价内容</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_content" name="appraise_content" required  lay-verify="required|appContent" placeholder="请输入评价内容" autocomplete="off" class="layui-input" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价时间</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_date" name="appraise_date" required lay-verify="required|appDate placeholder="" autocomplete="off" class="layui-input" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="addformsub">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+
+</script>
+<script type="text/html" id="updateAppraise">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px; margin-bottom: 30px">
+        <legend style="font-size: 20px">修改评价信息</legend>
+        <legend style="font-size: 12px">注意：不能更改员工号</legend>
+
+    </fieldset>
+    <form class="layui-form" action="" lay-filter="updAppsTable">
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价编号</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_id" name="appraise_id" required  lay-verify="required|appId" placeholder="请输入评价编号" autocomplete="off" class="layui-input"disabled="" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户编号</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_customer_id" name="customer_id" required  lay-verify="required|cusId" placeholder="请输入评价编号" autocomplete="off" class="layui-input"disabled="" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价星级</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_star" name="appraise_star" required  lay-verify="required|appStar" placeholder="请输入房间类型" autocomplete="off" class="layui-input" disabled="" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">房间类型</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_room_type" name="room_type" required  lay-verify="required|roomType" placeholder="请输入房间类型" autocomplete="off" class="layui-input" disabled="" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户姓名</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_customer_name" name="customer_name" required  lay-verify="required|cusName" placeholder="请输入姓名号" autocomplete="off" class="layui-input" disabled="" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价内容</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_content" name="appraise_content" required  lay-verify="required|appConetent" placeholder="请输入评价内容" autocomplete="off" class="layui-input" disabled=""style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价时间</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_date" name="appraise_date" required lay-verify="required|appDate placeholder="" autocomplete="off" class="layui-input" disabled=""style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">回复</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_appraise_reply" name="appraise_reply" required lay-verify="required|appReply placeholder="请输入回复内容" autocomplete="off" class="layui-input"  style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评价时间</label>
+            <div class="layui-input-block">
+                <input type="text" id="u_reply_date" name="reply_date" required lay-verify="required|appDate placeholder="" autocomplete="off" class="layui-input" disabled="" style="width: 300px">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="updateformsub">立即提交</button>
+
+            </div>
+        </div>
+    </form>
+
+</script>
+</body>
+</html>

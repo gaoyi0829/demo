@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.PersonDao"><!--namespace:定义一个操作包  -->
+    <select id="select" resultType="com.ssm.entity.Person">
+    select * from ceyan3 where name=#{name};
+</select>
+    <select id="selectbyid" resultType="com.ssm.entity.Person">
+    select * from ceyan3 where id=#{id};
+    </select>
+    <update id="updata">
+        update ceyan3 set ${varname} = #{val} where id=#{id};
+    </update>
+</mapper>

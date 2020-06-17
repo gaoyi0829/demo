@@ -14,7 +14,7 @@
     </select>
     <select id="selRoomByType" resultType="com.pojo.Hotel">
         select * from room_type
-        where room_type = #{room_type};
+        where room_type.room_type = #{room_type};
     </select>
     <select id="selRoomType" resultType="com.pojo.Hotel">
         select * from room_type
@@ -26,15 +26,15 @@
     </select>
     <select id="roomtypeinfo" resultType="com.pojo.Hotel">
         select * from room_type
-        where room_type = #{room_type};
+        where room_type.room_type = #{room_type};
     </select>
     <update id="roomtypeupdata">
         update room_type set ${varname} = ${upval}
-        where room_type = #{room_type};
+        where room_type.room_type = #{room_type};
     </update>
     <insert id="roomtypeinsert" parameterType="com.pojo.Hotel">
-        insert into room_type(room_type,room_img,bed_type,food,room_service,maxnum,price,room_area,bed_length,window)
-        value (#{room_type},#{room_img},#{bed_type},#{food},#{room_service},#{maxnum},#{price},#{room_area},#{bed_length},#{window})
+        insert into room_type(room_type.room_type,room_img,bed_type,food,room_service,maxnum,room_type.price,room_area,bed_length,window1)
+        value (#{room_type},#{room_img},#{bed_type},#{food},#{room_service},#{maxnum},#{price},#{room_area},#{bed_length},#{window1})
     </insert>
     <select id="selroomlist" resultType="com.pojo.Room">
         select * from room_info
@@ -42,10 +42,10 @@
     </select>
     <delete id="roomtypeDelByType" parameterType="String">
         delete from room_type
-        where room_type = #{room_type}
+        where room_type.room_type = #{room_type}
     </delete>
     <delete id="roomtypeDelByTypes" parameterType="java.util.List">
-        delete from room_type where room_type in
+        delete from room_type where room_type.room_type in
         <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -55,7 +55,7 @@
     </select>
     <select id="seltype" resultType="String">
         select room_type from room_type
-        group by room_type;
+        group by room_type.room_type;
     </select>
     <select id="roominfo" resultType="com.pojo.Room">
         select * from room_info

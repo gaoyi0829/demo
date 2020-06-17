@@ -35,5 +35,17 @@
     <bean id="HotelService" class="com.service.HotelService">
         <property name="hotelMapper" ref="hotelMapper"></property>
     </bean>
+    <bean id="LoginService" class="com.service.LoginService">
+        <property name="loginMapper" ref="loginMapper"></property>
+    </bean>
+    <bean id="AppService" class="com.service.AppService">
+        <property name="mapper" ref="appMapper"></property>
+    </bean>
+    <bean id="OrderService" class="com.service.OrderService">
+        <property name="orderMapper" ref="orderMapper"></property>
+    </bean>
+    <bean id="HSMSservice" class="com.service.HSMSservice">
+        <property name="mapper" ref="HSMSmapper"/>
+    </bean>
 
 </beans>

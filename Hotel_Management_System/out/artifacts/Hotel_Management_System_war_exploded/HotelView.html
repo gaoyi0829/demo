@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="css/HotelView.css"/>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<script src="layui/layui.js"></script>
 <script src="js/json2.js"></script>
 <script src="js/HotelTop.js"></script>
 <script src="js/HotelHome.js"></script>
@@ -54,7 +56,7 @@
     </div>
 </div>
 <div class="showpage" id="seldiv">
-    <input type="date" id="in_date" class="date" name="in_date">-
+    <input type="date" id="in_date" class="date" name="in_date" onchange="out_mindate()">-
     -<input type="date" id="out_date" class="date" name="out_date">&nbsp;&nbsp;&nbsp;&nbsp;
     住客数:<select id="cusnum">
 </select>人&nbsp;&nbsp;
@@ -93,6 +95,7 @@
     <span class="hotel_info-title">酒店政策</span><br><br>
     <img src="HotelImg/policy.png" class="img-hotel_info"><br><br>
     <span class="hotel_info-title" id="Guest_comments">住客点评</span><br>
+    <iframe id="pjiframe" src="Customer.jsp" scrolling="no"></iframe>
 </div>
 <iframe src="HotelBottom.html" id="bottom"/>
 </body>

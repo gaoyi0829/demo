@@ -26,6 +26,7 @@
         width: 60px;
         background-color: #0099FF;
         border-radius: 10px;
+        border: none;
         color: white;
     }
 
@@ -33,6 +34,7 @@
         height: 31px;
         width: 60px;
         border-radius: 10px;
+        border: none;
         color: white;
     }
 
@@ -104,11 +106,10 @@ function filmins() {
         $("#release_date").attr("max", year + "-" + month + "-" + date);
     })
 </script>
-<body style="line-height: 40px;width: 600px;background-color: #F3F3F3;">
-<hr style="border:0;height:1px;background-color: #AED2DA;">
-<div id="alter" style="padding: 20px;width: 569px;height: 800px;;background-color: #FAFAFA;">
-    <div id="alter_1_1" style="background-color: #AED2DA;height: 50px;width: 100%;padding-top: 10px;">
-        <span style="color: #007FBB;font-size: 25px;">影片录入</span>
+<body style="line-height: 40px;width: 600px;background-color: white;">
+<div id="alter" style="padding: 20px;width: 569px;height: 800px;;background-color: white;">
+    <div id="alter_1_1" style="background-color: white;height: 50px;width: 100%;padding-top: 10px;">
+        <span style="color: #666666;font-size: 25px;">影片录入</span>
     </div>
     <div id="insert" style="float: left;">
         <form action="filminsert" method="post" id="form-ifo" style="color: #999999;" enctype="multipart/form-data">
@@ -147,7 +148,7 @@ function filmins() {
             <textarea id="brief_introduction" name="brief_introduction" style="width: 300px;height: 100px"
                       maxlength="266"
                       required></textarea><br>
-            <center><input type="button" class="button" value="插入" style="background-color: #00AEE6" onclick="return check(),filmins()">&nbsp;&nbsp;<input
+            <center><input type="button" class="button" value="插入" style="background-color: #1CA0FF" onclick="return check(),filmins()">&nbsp;&nbsp;<input
                 type="reset" class="button" value="重置" style="background-color: #CCCCCC">&nbsp;&nbsp;</center>
         </form>
     </div>

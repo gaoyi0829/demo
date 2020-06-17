@@ -1,0 +1,432 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="${artifactId}骨架" />
+    </artifacts-to-build>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:shiyan2" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="22db1a85-83e0-4079-b048-04eb31a4390c" name="Default Changelist" comment="">
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/ceyan3.iml" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/java/com/${artifactId}/dao/NewDao.java" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/java/com/${artifactId}/entity/New.java" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/java/com/${artifactId}/mapper/newmapper.xml" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/java/com/${artifactId}/service/NewService.java" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/java/com/${artifactId}/serviceimpl/NewServiceImpl.java" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/java/com/${artifactId}/web/NewController.java" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/resources/properties/jdbc.properties" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/resources/properties/log4j.properties" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/resources/spring/spring-dao.xml" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/resources/spring/spring-service.xml" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/ceyan3/src/main/resources/spring/spring-web.xml" afterDir="false" />
+      <change afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/AllManage.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/AllManage.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/FilmAlter.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/FilmAlter.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/FilmInsert.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/FilmInsert.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/RoomTypeAlter.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/RoomTypeAlter.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/RoomTypeInsert.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/RoomTypeInsert.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/HotelHome.css" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/HotelHome.css" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/HotelManage.js" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/HotelManage.js" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/controller/FilmController.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/controller/FilmController.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/controller/HotelController.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/controller/HotelController.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/service/FilmService.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/service/FilmService.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/service/HotelService.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/WEB-INF/classes/com/service/HotelService.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/css/HotelHome.css" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/css/HotelHome.css" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/js/HotelManage.js" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/Hotel_Management_System_war_exploded/js/HotelManage.js" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/FilmAlter.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/FilmAlter.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/FilmInsert.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/FilmInsert.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/RoomTypeAlter.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/RoomTypeAlter.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/RoomTypeInsert.html" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/RoomTypeInsert.html" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/AllManage.js" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/AllManage.js" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/HotelHome.css" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/HotelHome.css" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/HotelManage.js" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/HotelManage.js" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/controller/FilmController.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/controller/FilmController.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/controller/HotelController.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/controller/HotelController.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/FilmMapper.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/mapper/HotelMapper.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/service/FilmService.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/service/FilmService.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/service/HotelService.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/WEB-INF/classes/com/service/HotelService.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/css/HotelHome.css" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/css/HotelHome.css" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/js/AllManage.js" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/js/AllManage.js" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/js/HotelManage.js" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/out/artifacts/web_war_exploded/js/HotelManage.js" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/HotelHome.css" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/HotelHome.css" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/HotelManage.js" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/HotelManage.js" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/controller/FilmController.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/controller/FilmController.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/controller/HotelController.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/controller/HotelController.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/FilmMapper.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/FilmMapper.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/FilmMapper.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/FilmMapper.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/HotelMapper.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/HotelMapper.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/HotelMapper.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/mapper/HotelMapper.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/service/FilmService.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/service/FilmService.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/service/HotelService.class" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../Hotel_Management_System/web/WEB-INF/classes/com/service/HotelService.class" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/.idea/shiyan2.iml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/.idea/shiyan2.iml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/out/artifacts/shiyan2_war_exploded/WEB-INF/classes/spring/spring-dao.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/out/artifacts/shiyan2_war_exploded/WEB-INF/classes/spring/spring-dao.xml" afterDir="false" />
+      <change beforePath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/target/classes/spring/spring-dao.xml" beforeDir="false" afterPath="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../课内容/shiyan2/target/classes/spring/spring-dao.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="${symbol_dollar}PROJECT_DIR${symbol_dollar}/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../../文件夹/idea包/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="${symbol_dollar}PROJECT_DIR${symbol_dollar}/../../文件夹/idea包/apache-maven-3.6.3/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1cr3QIpLXYxOHvR0uEVTqvkhexu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="${symbol_dollar}PROJECT_DIR${symbol_dollar}/src/main/resources" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="${symbol_dollar}PROJECT_DIR${symbol_dollar}/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="archetype:create-from-project" />
+      <command value="mvn archetype:create-from-project" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 7.0.103" type="${symbol_pound}com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.103" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/${artifactId}/" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="${artifactId}骨架">
+          <settings>
+            <option name="CONTEXT_PATH" value="/${artifactId}" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_${artifactId}骨架_3" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55889" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="${artifactId}骨架" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22db1a85-83e0-4079-b048-04eb31a4390c" name="Default Changelist" comment="" />
+      <created>1591272866296</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591272866296</updated>
+      <workItem from="1591272870295" duration="5610000" />
+      <workItem from="1591278698284" duration="397000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/apple/Desktop/idea-workspace/${artifactId}骨架/src/main/webapp/WEB-INF" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="2">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="${symbol_dollar}PROJECT_DIR${symbol_dollar}/.." />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+        <entry key="2" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="327" y="107" key="${symbol_pound}Project_Structure" timestamp="1591274473808">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="327" y="107" key="${symbol_pound}Project_Structure/0.0.1680.1050@0.0.1680.1050" timestamp="1591274473808" />
+    <state x="304" y="187" key="${symbol_pound}com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591276372797">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="304" y="187" key="${symbol_pound}com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1591276372797" />
+    <state x="542" y="334" key="${symbol_pound}com.intellij.fileTypes.FileTypeChooser" timestamp="1591273868703">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="542" y="334" key="${symbol_pound}com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1591273868703" />
+    <state x="564" y="438" key="${symbol_pound}com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1591275498022">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="564" y="438" key="${symbol_pound}com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath/0.0.1680.1050@0.0.1680.1050" timestamp="1591275498022" />
+    <state x="627" y="438" key="${symbol_pound}com.intellij.javaee.module.view.web.EditWebRootDialog" timestamp="1591275312491">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="627" y="438" key="${symbol_pound}com.intellij.javaee.module.view.web.EditWebRootDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1591275312491" />
+    <state x="628" y="287" key="FileChooserDialogImpl" timestamp="1591275122999">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="628" y="287" key="FileChooserDialogImpl/0.0.1680.1050@0.0.1680.1050" timestamp="1591275122999" />
+    <state width="1126" height="295" key="GridCell.Tab.0.bottom" timestamp="1591279025617">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025617" />
+    <state width="1126" height="295" key="GridCell.Tab.0.center" timestamp="1591279025616">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025616" />
+    <state width="1126" height="295" key="GridCell.Tab.0.left" timestamp="1591279025615">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025615" />
+    <state width="1126" height="295" key="GridCell.Tab.0.right" timestamp="1591279025616">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025616" />
+    <state width="1126" height="295" key="GridCell.Tab.1.bottom" timestamp="1591279025620">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025620" />
+    <state width="1126" height="295" key="GridCell.Tab.1.center" timestamp="1591279025618">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025618" />
+    <state width="1126" height="295" key="GridCell.Tab.1.left" timestamp="1591279025618">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025618" />
+    <state width="1126" height="295" key="GridCell.Tab.1.right" timestamp="1591279025619">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025619" />
+    <state width="1126" height="295" key="GridCell.Tab.2.bottom" timestamp="1591279025623">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025623" />
+    <state width="1126" height="295" key="GridCell.Tab.2.center" timestamp="1591279025622">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025622" />
+    <state width="1126" height="295" key="GridCell.Tab.2.left" timestamp="1591279025620">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025620" />
+    <state width="1126" height="295" key="GridCell.Tab.2.right" timestamp="1591279025623">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1126" height="295" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025623" />
+    <state x="328" y="106" key="SettingsEditor" timestamp="1591279095578">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="328" y="106" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1591279095578" />
+    <state x="208" y="188" key="new project wizard" timestamp="1591278546297">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="208" y="188" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1591278546297" />
+    <state x="505" y="248" width="670" height="675" key="run.anything.popup" timestamp="1591279025552">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="248" width="670" height="675" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1591279025552" />
+    <state x="486" y="215" key="spring file set editor" timestamp="1591275426648">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="486" y="215" key="spring file set editor/0.0.1680.1050@0.0.1680.1050" timestamp="1591275426648" />
+  </component>
+</project>

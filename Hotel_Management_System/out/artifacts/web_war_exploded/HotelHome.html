@@ -23,16 +23,7 @@
 <div id="showlogo">
     <img src="BackImg/logo.jpg">
 </div>
-<div class="modal">
-    <div class="container">
-        <div class="container-top"><span id="container-top-span"></span>
-            <div class="close" onclick="closewindown()">
-                ╳
-            </div>
-        </div>
-        <iframe id="popup"></iframe>
-    </div>
-</div>
+
 <div class="layui-carousel" id="Scroll">
     <div carousel-item>
       <div><img src="BackImg/Scrollshow1.png" class="showimg"></div>
@@ -47,7 +38,7 @@
         <img src="BackImg/order.png">
     </div>
     <br>
-    <input type="date" id="in_date" class="date" name="in_date">-
+    <input type="date" id="in_date" class="date" name="in_date" onchange="out_mindate()">-
     -<input type="date" id="out_date" class="date" name="out_date">
     <input type="button" value="立即预订" id="sel_sub">
 </div>
@@ -60,4 +51,16 @@
 </div>
 <iframe src="HotelBottom.html" id="bottom"/>
 </body>
+<script type="text/html" id="loggin">
+    <div class="modal">
+    <div class="container">
+        <div class="container-top"><span id="container-top-span"></span>
+            <div class="close" onclick="closewindown()">
+                ╳
+            </div>
+        </div>
+        <iframe id="popup"></iframe>
+    </div>
+</div>
+</script>
 </html>

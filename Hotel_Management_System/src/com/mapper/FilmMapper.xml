@@ -68,11 +68,11 @@
         values (#{poster},#{film_name},#{director},#{screen_writer},#{actor},#{film_type},#{producer_country},#{language},#{release_date},#{film_length},#{brief_introduction},#{score});
     </insert>
     <delete id="filmDelById" parameterType="Integer">
-        delete from room_info
-        where room_id = #{_parameter}
+        delete from film_gallery
+        where film_id = #{film_id}
     </delete>
     <delete id="filmDelByIds" parameterType="java.util.List">
-        delete from room_info where room_id in
+        delete from film_gallery where film_id in
         <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -81,14 +81,4 @@
         update film_gallery set ${varname} = ${upval}
         where film_id = ${film_id};
     </update>
-    <delete id="filmDelByType" parameterType="Integer">
-        delete from room_type
-        where room_type = #{_parameter}
-    </delete>
-    <delete id="filmDelByTypes" parameterType="java.util.List">
-        delete from room_type where room_type in
-        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-    </delete>
 </mapper>

@@ -10,6 +10,7 @@
 
     <properties>
         <spring.version>4.3.3.RELEASE</spring.version>
+        <jackson.version>2.5.4</jackson.version>
     </properties>
 
 
@@ -55,7 +56,21 @@
             <version>1.2.17</version>
         </dependency>
         <!-- Log4j end -->
-
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.3</version>
+        </dependency>
         <!-- 引入Spring(包含SpringMVC) 依赖 start -->
         <dependency>
             <groupId>org.springframework</groupId>

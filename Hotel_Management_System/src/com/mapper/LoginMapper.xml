@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.LoginMapper"><!--namespace:定义一个操作包  -->
+    <select id="logincus" resultType="com.pojo.Customer">
+        select cus_name,number,cus_password from customer
+        where number = #{number};
+    </select>
+    <select id="loginman" resultType="com.pojo.Manager">
+        select man_name,password from manager
+        where jobnum = #{jobnum};
+    </select>
+    <update id="remaninfo">
+        update manager set man_name=#{man_name},password=#{password} where jobnum = #{jobnum}
+    </update>
+    <insert id="regist" parameterType="com.pojo.Customer">
+        insert into customer (cus_name,number,cus_password,question,answer,telephone) values (#{cus_name},#{number},#{cus_password},#{question},#{answer},#{telephone});
+    </insert>
+</mapper>

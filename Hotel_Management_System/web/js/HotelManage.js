@@ -23,7 +23,7 @@ function del_types(r_types) {
             type: "post",
             url: "http://localhost:8080/Hotel_Management_System_war_exploded/roomdelbytypes",
             traditional: true,  //传递数组必须设置此属性
-            data: {"r_types": rome_types},
+            data: {"r_types": r_types},
             success: function () {
                 alert("删除成功!");
             }

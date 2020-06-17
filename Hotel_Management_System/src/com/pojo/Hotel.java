@@ -1,14 +1,14 @@
 package com.pojo;
 
 public class Hotel {
-    String room_type, room_img, bed_type, food, room_service, maxnum, bed_length, window;
+    String room_type, room_img, bed_type, food, room_service, maxnum, bed_length, window1;
     double price;
     float room_area;
 
     public Hotel() {
     }
 
-    public Hotel(String room_type, String room_img, String bed_type, String food, String room_service, String maxnum, String bed_length, String window, double price, float room_area) {
+    public Hotel(String room_type, String room_img, String bed_type, String food, String room_service, String maxnum, String bed_length, String window1, double price, float room_area) {
         this.room_type = room_type;
         this.room_img = room_img;
         this.bed_type = bed_type;
@@ -16,7 +16,7 @@ public class Hotel {
         this.room_service = room_service;
         this.maxnum = maxnum;
         this.bed_length = bed_length;
-        this.window = window;
+        this.window1 = window1;
         this.price = price;
         this.room_area = room_area;
     }
@@ -77,12 +77,12 @@ public class Hotel {
         this.bed_length = bed_length;
     }
 
-    public String getWindow() {
-        return window;
+    public String getWindow1() {
+        return window1;
     }
 
-    public void setWindow(String window) {
-        this.window = window;
+    public void setWindow1(String window1) {
+        this.window1 = window1;
     }
 
     public double getPrice() {
@@ -111,7 +111,7 @@ public class Hotel {
                 ", room_service='" + room_service + '\'' +
                 ", maxnum='" + maxnum + '\'' +
                 ", bed_length='" + bed_length + '\'' +
-                ", window='" + window + '\'' +
+                ", window1='" + window1 + '\'' +
                 ", price=" + price +
                 ", room_area=" + room_area +
                 '}';

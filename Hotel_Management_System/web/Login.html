@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<script src="layui/layui.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+<script src="js/json2.js"></script>
+<script src="js/Application.js"></script>
+<body>
+<form class="layui-form" action="" style="margin-top: 40px;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">账号</label>
+        <div class="layui-input-block">
+            <input type="text" id="cus_id" name="cus_id" required lay-verify="required" placeholder="请输入账号"
+                   maxlength="18" autocomplete="off" class="layui-input" style="width: 190px;">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-inline">
+            <input type="password" id="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                   maxlength="16" autocomplete="off" class="layui-input" style="width: 190px;">
+        </div>
+        <div class="layui-form-mid layui-word-aux"></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <div class="layui-input-block">
+            <input type="radio" name="type" value="管理员" title="管理员" checked>
+            <input type="radio" id="cusradio" name="type" value="用户" title="用户">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">登陆</button>
+            <button type="reset" id="rebutton" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    window.onload = function check(){
+        var purl = window.parent.location
+        if(purl == 'http://localhost:8080/Hotel_Management_System_war_exploded/AllManage.html'){
+            $("#cusradio").attr("disabled",true);
+        }
+    }
+    //Demo
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            var cus_id = document.getElementById("cus_id").value;
+            var password = document.getElementById("password").value;
+            var type = $("input[name='type']:checked").val();
+            //alert(type)
+            //alert("开始登陆！" + cus_id + password)
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/Hotel_Management_System_war_exploded/login",
+                data: {"cus_id": cus_id, "password": password, "type": type},
+                dataType: "text",
+                success: function (data) {
+                    //res = data.substring(1,data.)
+                    if (data=="密码错误!" || data=="账号不存在!") {
+                        alert("登陆失败!" + data);
+                    } else {
+                        SetCookie("cusname", data);
+                        SetCookie("cusid", cus_id);
+                        SetCookie("type", type);
+                       // alert("登陆成功!")
+                        parent.location.reload()
+                    }
+                }
+            })
+            alert("")
+        });
+    });
+</script>
+</body>
+</html>

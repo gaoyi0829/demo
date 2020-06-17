@@ -101,6 +101,7 @@ public class HotelController {
     @RequestMapping("roomtypeinsert")
     @ResponseBody
     public void roomtypeinsert(MultipartFile file, Hotel hotel, HttpServletRequest req) throws IOException {
+        System.out.println(hotel);
         String filename = file.getOriginalFilename();
         String path = req.getServletContext().getRealPath("HotelImg");
         File saveFile = new File(path + "/" + filename);
@@ -130,13 +131,13 @@ public class HotelController {
 
     @RequestMapping("roomdelbytype")
     @ResponseBody
-    public void filmDelByType(String room_type) {
+    public void roomtypeDelByType(String room_type) {
         hs.roomtypeDelByType(room_type);
     }
 
     @RequestMapping("roomdelbytypes")
     @ResponseBody
-    public void filmDelByIds(String[] r_types, HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public void roomtypeDelByIds(String[] r_types, HttpServletRequest req, HttpServletResponse res) throws Exception {
         List<String> room_types = new ArrayList<String>();
         for (int i = 0; i < r_types.length; i++) {
             room_types.add(r_types[i]);
@@ -153,15 +154,14 @@ public class HotelController {
 
     @RequestMapping("roomdelbyid")
     @ResponseBody
-    public void filmDelById(String r_id) {
+    public void roomDelById(String r_id) {
         Integer room_id = Integer.parseInt(r_id);
-        System.out.println("======="+room_id);
         hs.roomDelById(room_id);
     }
 
     @RequestMapping("roomdelbyids")
     @ResponseBody
-    public void filmDelByIds(Integer[] r_ids) {
+    public void roomDelByIds(Integer[] r_ids) {
         List<Integer> room_ids = new ArrayList<Integer>();
         for (int i = 0; i < r_ids.length; i++) {
             room_ids.add(r_ids[i]);

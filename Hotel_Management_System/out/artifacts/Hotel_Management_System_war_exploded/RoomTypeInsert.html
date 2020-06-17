@@ -10,7 +10,6 @@
 <script src="js/RoomTypeInsert.js"></script>
 <script src="js/Application.js"></script>
 <body>
-<hr id="hr1">
 <div id="alter">
     <div id="alter_1_1">
         <span id="span1">添加房型</span>
@@ -39,7 +38,7 @@
             <span class="must">*</span>最多入住：<input type="text" name="maxnum"
                                                    maxlength="2" id="maxnum"
                                                    required><br>
-            <span class="must">*</span>价格：&nbsp;&nbsp;&nbsp;¥<input type="text" name="price"
+            <span class="must">*</span>价格：&nbsp;&nbsp;&nbsp;&nbsp;¥<input type="text" name="price"
                                                                     maxlength="6" id="price"
                                                                     required><br>
             <span class="must">*</span>房间面积：<input type="text" name="room_area" maxlength="6"
@@ -47,11 +46,11 @@
             <span class="must">*</span>床宽：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="bed_length"
                                                                                      maxlength="33" id="bed_length"
                                                                                      required><br>
-            <span class="must">*</span>窗户：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="window" name="window" class="input" required>
+            <span class="must">*</span>窗户：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="window" name="window1" class="input" required>
             <option value="有窗">有</option>
             <option value="无窗">无</option>
         </select><br>
-            <center><input type="button" class="button" value="插入" style="background-color: #00AEE6"
+            <center><input type="button" class="button" value="插入" style="background-color: #1CA0FF"
                            onclick="return check(),roomtypeins()">&nbsp;&nbsp;<input
                     type="reset" class="button" value="重置" style="background-color: #CCCCCC">&nbsp;&nbsp;</center>
         </form>

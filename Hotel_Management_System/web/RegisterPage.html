@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>实验4 Vue+Bootstrap+jQuery实现动态表格</title>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <!-- bootstrapValidator-->
+    <script type="text/javascript" src="bootstrapValidator/js/bootstrapValidator.js"></script>
+    <link href="bootstrapValidator/css/bootstrapValidator.css">
+
+    <!--
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
+    -->
+    <!-- vue -->
+    <script src="Vue/vue.js"></script>
+
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+
+    body{
+        background: whitesmoke;
+    }
+    #head{
+        background: whitesmoke;
+        margin-left: 5%
+    }
+    #form1{
+        padding: 2% 5% 1%;
+        text-align: left;
+    }
+
+
+</style>
+<body>
+<div id="all">
+    <div id="head">
+        <h1>用户注册</h1>
+        <p class="lead">Welcome！</p>
+    </div>
+    <div id="main">
+        <div id="form1">
+            <form class="bs-example bs-example-form" role="form" id="form1_1" >
+                <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                    <div class="input-group input-group-lg ">
+                        <span class="input-group-addon">用户名：</span>
+                        <input type="text" name="cus_name" class="form-control" placeholder="请输入昵称" v-model="cus_name" ref="cus_name">
+                    </div>
+
+                </div>
+                <br><br><br><br><br>
+                <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                    <div class="input-group input-group-lg ">
+                        <span class="input-group-addon">密码：</span>
+                        <input type="password" name="cus_password" class="form-control" v-model="cus_password"  ref="cus_password">
+                    </div>
+
+                </div>
+                <br><br><br><br><br>
+                <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                    <div class="input-group input-group-lg ">
+                        <span class="input-group-addon">身份证号：</span>
+                        <input type="text" name="number" class="form-control"  placeholder="请输入您的身份证号" v-model="number" maxlength="18" ref="number">
+                    </div>
+
+                </div>
+                <br><br><br><br><br>
+                <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                    <div class="input-group input-group-lg ">
+                        <span class="input-group-addon">设置安全问题：</span>
+                        <input type="text" name="question" class="form-control" v-model="question"  placeholder="请设置您的安全问题" maxlength="20"
+                               ref="question">
+                    </div>
+
+                </div>
+                <br><br><br><br><br>
+                <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                    <div class="input-group input-group-lg ">
+                        <span class="input-group-addon">设置问题答案：</span>
+                        <input type="text" name="answer" class="form-control" v-model="answer"  placeholder="设置问题答案" maxlength="20"  ref="answer">
+                    </div>
+
+                </div>
+                <br><br><br><br><br>
+                <div class="form-group col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                    <div class="input-group input-group-lg ">
+                        <span class="input-group-addon">联系电话：</span>
+                        <input type="text" name="telephone" class="form-control" placeholder="请输入电话" v-model="telephone" maxlength="11"  ref="telephone">
+                    </div>
+
+
+
+                </div>
+                <br><br><br><br><br>
+                <div class="btn-group btn-group-lg" style="padding-top: 20px">
+                    <button id="addBtn" class="btn btn-default" onclick="regist()" >注册</button>
+                    <button type="reset" id="res" class="btn btn-default" @click="resetForm">重置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </span>
+
+</div>
+</div>
+
+
+<script>
+    function regist() {
+        var formData = new FormData(document.forms.namedItem("form1_1"));
+        alert(formData)
+        $.ajax({
+            url: 'http://localhost:8080/Hotel_Management_System_war_exploded/regist',
+            type: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'text',
+            success: function (data) {
+                alert(data)
+                if(data != "注册成功!"){
+                    $("#res").click();
+                }else{
+                    alert("即将跳转至主页!")
+                    window.location.href = "HotelHome.html";
+                }
+            },
+            error: function () {
+                alert('注册失败!');
+            }
+        });
+
+    }
+    function formValidator() {
+        $('#form1_1').bootstrapValidator({
+            live : 'submitted',
+            live : 'enabled', //enabled代表当表单控件内容发生变化时就触发验证，默认提交时验证，
+            // disabled和submitted代表当点击提交按钮时触发验证
+
+            fields: {
+                cus_name:{
+                    validators:{
+                        notEmpty:{
+                            message:'用户名为不能为空'
+                        }
+                    }
+                },
+
+                cus_password: {
+                    validators: {
+                        notEmpty: {
+                            message:'密码不能为空'
+                        }
+                    }
+                }
+                ,
+                telephone: {
+                    validators: {
+                        notEmpty: {
+                            message:'手机号码为不能为空'
+                        },
+                        regexp:{
+                            regexp: /^1[3-9][\d]{9}$/,  //正则规则用两个/包裹起来
+                            message: '手机号码有误应满11位，且符合13、14、15、16、17、18、19开头'
+                        }
+                    }
+                }
+            }
+        })
+    }
+    // 创建 Vue 实例，得到 ViewModel
+    const vm = new Vue({
+        el: '#all',
+        data: {
+            cus_name:'',
+            cus_password:'',
+            number:'',
+            question:'',
+            answer:'',
+            telephone:'',
+        },
+
+        methods: {
+
+
+
+            resetForm(){
+                this.cus_name='';
+                this.cus_password='';
+                this.number='';
+                this.question='';
+                this.telephone='';
+                this.$refs.cus_name.focus()
+                // this.$refs['formRef'].resetFields()
+                $('#form1_1').on('reset', function() {
+                    //console.log("hhaa");
+                    $("#form1_1").data('bootstrapValidator').destroy();
+                    $('#form1_1').data('bootstrapValidator', null);
+                    formValidator();
+                });
+            },
+
+
+        }
+    });
+
+
+</script>
+<script>
+    $(function (){
+        // 使用bootstrapValidator验证
+
+        $('#form1_1').bootstrapValidator({
+            live : 'submitted',
+            live : 'enabled', //enabled代表当表单控件内容发生变化时就触发验证，默认提交时验证，
+            // disabled和submitted代表当点击提交按钮时触发验证
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                cus_name:{
+                    validators:{
+                        notEmpty:{
+                            message:'用户名为不能为空'
+                        }
+                    }
+                },
+
+                cus_password: {
+                    validators: {
+                        notEmpty: {//
+                            message:'密码不能为空'
+                        },
+                        regexp:{
+                            regexp: /^^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/,  //正则规则用两个/包裹起来
+                            message: '密码至少包含 数字和英文，长度6-20'
+                        }
+
+                    }
+                }
+                ,
+                number: {
+                    validators: {
+                        notEmpty: {
+                            message:'身份证号不能为空'
+                        },
+                        regexp:{
+                            regexp: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,  //正则规则用两个/包裹起来
+                            message: '身份证格式有误，请输入18位正确的身份证号'
+                        }
+
+                    }
+                }
+                , question: {
+                    validators: {
+                        notEmpty: {
+                            message:'安全问题不能为空'
+                        },
+                        regexp:{
+                            regexp: /^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$/,  //正则规则用两个/包裹起来
+                            message: '只可以中文、英文、数字但不包括下划线等符号'
+                        }
+
+                    }
+                }
+                , answer: {
+                    validators: {
+                        notEmpty: {
+                            message:'问题答案不能为空'
+                        },
+                        regexp:{
+                            regexp: /^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$/,  //正则规则用两个/包裹起来
+                            message: '只可以中文、英文、数字但不包括下划线等符号'
+                        }
+
+                    }
+                }
+                ,
+
+
+                telephone: {
+                    validators: {
+                        notEmpty: {
+                            message:'手机号码为不能为空'
+                        },
+                        regexp:{
+                            regexp: /^1[3456789][\d]{9}$/,  //正则规则用两个/包裹起来
+                            message: '请输入正确的手机号'
+                        }
+                    }
+                }
+            }
+        })
+
+
+
+
+    })
+
+</script>
+</body>
+</html>

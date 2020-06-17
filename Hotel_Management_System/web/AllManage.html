@@ -19,15 +19,15 @@
         
         <ul class="layui-nav layui-layout-right">
           <li class="layui-nav-item">
-            <a href="javascript:;">
-              <span id="staffname">{{staffname}}</span>
+            <a href="javascript:;" onclick="login()">
+              <span id="staffname">登陆</span>
             </a>
             <dl class="layui-nav-child">
-              <dd><a href="">基本资料</a></dd>
-              <dd><a href="">安全设置</a></dd>
+              <dd><a onclick="if(login())remaninfo()">安全设置</a></dd>
             </dl>
           </li>
-          <li class="layui-nav-item"><a href="" onclick="delCookie('staffid')">退出系统</a></li>
+          <li class="layui-nav-item" ><a href="HotelHome.html" >返回主页</a></li>
+          <li class="layui-nav-item" ><a href="" onclick="logout()">退出系统</a></li>
         </ul>
       </div>
       
@@ -39,19 +39,16 @@
               <a class="inserthtml" href="javascript:;">酒店管理</a>
               <dl class="layui-nav-child">
                 <dd><a onclick="if(checklogin())insiframe('RoomType.html')">房型管理</a></dd>
-                <dd><a onclick="insiframe('Room.html')">房间管理</a></dd>
+                <dd><a onclick="if(checklogin())insiframe('Room.html')">房间管理</a></dd>
               </dl>
             </li>
-            <li class="layui-nav-item">
-              <a href="javascript:;">解决方案</a>
-              <dl class="layui-nav-child">
-                <dd><a href="javascript:;">列表一</a></dd>
-                <dd><a href="javascript:;">列表二</a></dd>
-                <dd><a href="">超链接</a></dd>
-              </dl>
-            </li>
-            <li class="layui-nav-item"><a onclick="insiframe('Film.html')">影库管理</a></li>
-            <li class="layui-nav-item"><a href="">发布商品</a></li>
+            <li class="layui-nav-item"><a onclick="if(checklogin())insiframe('HSMS_EmployeeList_Manager.jsp')">员工管理</a></li>
+            <li class="layui-nav-item"><a onclick="if(checklogin())insiframe('Film.html')">影库管理</a></li>
+            <li class="layui-nav-item"><a onclick="if(checklogin())insiframe('Appraise.html')">评价管理</a></li>
+            <li class="layui-nav-item"><a onclick="if(checklogin())insiframe('HOS_ordersList_mangment.jsp')">订单管理</a></li>
+            <li class="layui-nav-item"><a onclick="if(checklogin())insiframe('HSMS_SpecialCase_Manager.jsp')">特殊事件管理</a></li>
+            <li class="layui-nav-item"><a onclick="if(checklogin())insiframe('HSMS_SupplyInventory_Manager.jsp')">库存管理</a></li>
+
           </ul>
         </div>
       </div>

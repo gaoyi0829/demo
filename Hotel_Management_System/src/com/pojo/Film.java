@@ -1,12 +1,12 @@
 package com.pojo;
 
 public class Film {
+
     public Integer film_id;
     public String poster, film_name, director, screen_writer, actor, film_type, producer_country, language, release_date, film_length, brief_introduction, score;
 
     public Film() {
     }
-
     public Film(int film_id, String poster, String film_name, String director, String screen_writer, String actor,
                 String film_type, String producer_country, String language, String release_date, String film_length,
                 String brief_introduction, String score) {

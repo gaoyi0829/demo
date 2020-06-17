@@ -4,6 +4,9 @@ body {
     height: 100%;
     width: 100%;
 }
+a{
+    font-size: 16px;
+}
 #bottom{
     width: 100%;
     border: medium none;

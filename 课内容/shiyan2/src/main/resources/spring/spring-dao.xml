@@ -46,7 +46,7 @@
 
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.mapper"></property>
+        <property name="basePackage" value="com.ssm.mapper"></property>
 <!-- 使用jdbbc.properyies时要去掉
        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
     </bean>

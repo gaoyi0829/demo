@@ -27,12 +27,6 @@
         <!-- 当获取连接失败重试次数 -->
         <property name="acquireRetryAttempts" value="2" />
     </bean>
-    <!--	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-    <!--		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
-    <!--		<property name="url" value="jdbc:mysql://localhost:3306/ke?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"/>-->
-    <!--		<property name="username" value="root"/>-->
-    <!--		<property name="password" value="gaoyi0829"/>-->
-    <!--	</bean>-->
     <!-- 3.配置SqlSessionFactory对象 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 注入数据库连接池 -->
@@ -52,7 +46,7 @@
 
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.mapper"></property>
+        <property name="basePackage" value="com.ssm.mapper"></property>
 <!-- 使用jdbbc.properyies时要去掉
        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
     </bean>

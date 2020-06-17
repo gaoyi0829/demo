@@ -10,7 +10,6 @@
 <script src="js/RoomTypeAlter.js"></script>
 <script src="js/Application.js"></script>
 <body>
-<hr id="hr1">
 <div id="alter">
     <div id="alter_1_1">
         <span id="span1">更新房型</span>
@@ -95,7 +94,7 @@
                 onclick="updatasub('bed_length','blbutton')">&nbsp;&nbsp;<input
                 type="button" class="button opbutton blbutton cancel" value="取消"
                 onclick="canceledit('blbutton','bed_length')"><br>
-            窗户：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="window" name="window" class="input">
+            窗户：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="window" name="window1" class="input">
             <option value="有窗">有</option>
             <option value="无窗">无</option>
         </select>&nbsp;&nbsp;<span
@@ -103,10 +102,10 @@
                 onclick="edit('wdbutton','window')">修改</span>&nbsp;&nbsp;<input type="button"
                                                                                 class="button opbutton wdbutton save"
                                                                                 value="保存"
-                                                                                onclick="updatasub('window','wdbutton')"
+                                                                                onclick="updatasub('window1','wdbutton')"
         >&nbsp;&nbsp;<input
                 type="button" class="button opbutton wdbutton cancel" value="取消"
-                onclick="canceledit('wdbutton','window')"><br>
+                onclick="canceledit('wdbutton','window1')"><br>
         </form>
     </div>
 </div>
